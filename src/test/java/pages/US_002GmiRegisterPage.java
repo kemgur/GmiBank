@@ -25,7 +25,7 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "//input[@name='lastname']")
     public WebElement lastNameTextbox;
 
-    @FindBy(xpath = "(//div[@class='invalid-feedback'])[3]")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
     public WebElement lastNameErrorMessage;
 
     @FindBy(xpath = "//input[@name='address']")
@@ -43,25 +43,25 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "//input[@name='username']")
     public WebElement usernameTextbox;
 
-    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
     public WebElement usernameErrorMessage;
 
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailTextbox;
 
-    @FindBy(xpath = "(//div[@class='invalid-feedback'])[5]")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
     public WebElement emailErrorMessage;
 
     @FindBy(xpath = "//input[@name='firstPassword']")
     public WebElement newPasswordTextbox;
 
-    @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
     public WebElement newPasswordErrorMessage;
 
     @FindBy(xpath = "//input[@name='secondPassword']")
-    public WebElement newPasswordConformationTextbox;
+    public WebElement newPasswordConfirmationTextbox;
 
-    @FindBy(xpath = "(//div[@class='invalid-feedback'])[7]")
-    public WebElement newPasswordConformationErrorMessage;
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
+    public WebElement newPasswordConfirmationErrorMessage;
 
 }
