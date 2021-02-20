@@ -38,10 +38,6 @@ public class US_002_StepDefinitions {
         registerPage.ssnTextbox.sendKeys(Keys.TAB);
     }
 
-    @And("User should see the {string}")
-    public void userShouldSeeThe(String errorMessage) {
-        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.ssnErrorMessage.getText());
-    }
 
     @Then("User clicks on First Name textbox")
     public void userClicksOnFirstNameTextbox() {
@@ -80,6 +76,54 @@ public class US_002_StepDefinitions {
 
     @Then("User clicks on New password confirmation textbox")
     public void userClicksOnNewPasswordConfirmationTextbox() {
-        registerPage.newPasswordConformationTextbox.click();
+        registerPage.newPasswordConfirmationTextbox.click();
+    }
+
+    @And("User should see the SSN error message {string}")
+    public void userShouldSeeTheSSNErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.ssnErrorMessage.getText());
+
+    }
+
+    @And("User should see the First Name error message {string}")
+    public void userShouldSeeTheFirstNameErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.firstNameErrorMessage.getText());
+
+    }
+
+    @And("User should see the Last Name error message {string}")
+    public void userShouldSeeTheLastNameErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.lastNameErrorMessage.getText());
+    }
+
+    @And("User should see the Address error message {string}")
+    public void userShouldSeeTheAddressErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.addressErrorMessage.getText());
+    }
+
+    @And("User should see the Mobile Phone Number error message {string}")
+    public void userShouldSeeTheMobilePhoneNumberErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.mobilePhoneErrorMessage.getText());
+    }
+
+    @And("User should see the Username error message {string}")
+    public void userShouldSeeTheUsernameErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.usernameErrorMessage.getText());
+        Driver.closeDriver();
+    }
+
+    @And("User should see the Email error message {string}")
+    public void userShouldSeeTheEmailErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.emailErrorMessage.getText());
+    }
+
+    @And("User should see the New password error message {string}")
+    public void userShouldSeeTheNewPasswordErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordErrorMessage.getText());
+    }
+
+    @And("User should see the New password confirmation error message{string}")
+    public void userShouldSeeTheNewPasswordConfirmationErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordConfirmationErrorMessage.getText());
     }
 }

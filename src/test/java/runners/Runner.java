@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 
         features="src/test/resources/features",
         glue="stepdefinitions",
-        dryRun = false
+        dryRun = false,
+        tags = "@ewip"
 )
 
 public class Runner {
