@@ -15,7 +15,7 @@ public class US_002_StepDefinitions {
     US_002GmiHomePage homePage = new US_002GmiHomePage();
     US_002GmiRegisterPage registerPage = new US_002GmiRegisterPage();
 
-    @Given("User on the login page")
+    @Given("User on the home page")
     public void userOnTheLoginPage() {
         Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
     }
@@ -125,5 +125,10 @@ public class US_002_StepDefinitions {
     @And("User should see the New password confirmation error message{string}")
     public void userShouldSeeTheNewPasswordConfirmationErrorMessage(String errorMessage) {
         Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordConfirmationErrorMessage.getText());
+    }
+
+    @Then("User provide invalid SSN {string} and click tab")
+    public void userProvideInvalidSSNAndClickTab(String invalidSsn) {
+        registerPage.ssnTextbox.sendKeys(ConfigReader.getProperty(invalidSsn) + Keys.TAB);
     }
 }
