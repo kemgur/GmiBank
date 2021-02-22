@@ -131,4 +131,19 @@ public class US_002_StepDefinitions {
     public void userProvideInvalidSSNAndClickTab(String invalidSsn) {
         registerPage.ssnTextbox.sendKeys(ConfigReader.getProperty(invalidSsn) + Keys.TAB);
     }
+
+    @Then("User provide invalid Mobile Phone Number {string} and click tab")
+    public void userProvideInvalidMobilePhoneNumberAndClickTab(String invalidMpn) {
+        registerPage.mobilePhoneTextBox.sendKeys(ConfigReader.getProperty(invalidMpn) + Keys.TAB);
+    }
+
+    @Then("User provide invalid Email {string} and click tab")
+    public void userProvideInvalidEmailAndClickTab(String invalidEmails) {
+        registerPage.emailTextbox.sendKeys(ConfigReader.getProperty(invalidEmails) + Keys.TAB);
+    }
+
+    @And("User should see the Email invalid error message {string}")
+    public void userShouldSeeTheEmailInvalidErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.invalidEmailErrorMessage.getText());
+    }
 }

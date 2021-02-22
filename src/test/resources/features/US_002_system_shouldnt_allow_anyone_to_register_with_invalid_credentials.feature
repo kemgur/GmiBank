@@ -70,6 +70,7 @@ Feature: US_002_system_shouldnt_allow_anyone_to_register_with_invalid_credential
     Then User clicks on New password confirmation textbox
     Then User doesnt provide "new_password_confirmation" and click tab
     And User should see the New password confirmation error message"new_password_confirmation_error_message"
+
   @wip
   Scenario Outline: TC_010, TC_011, TC_012 SSN number cannot be of any chars nor spec chars except "-"
     Given User on the home page
@@ -78,16 +79,31 @@ Feature: US_002_system_shouldnt_allow_anyone_to_register_with_invalid_credential
     Then User provide invalid SSN "<invalid_ssns>" and click tab
     And User should see the SSN error message "ssn_invalid_error_message"
     Examples:
-      | invalid_ssns |
-      | invalid_ssn1 |
-      | invalid_ssn2 |
-      | invalid_ssn3 |
+      | invalid_ssns   |
+      | e_invalid_ssn1 |
+      | e_invalid_ssn2 |
+      | e_invalid_ssn3 |
 
   Scenario Outline: TC_013, TC_014, TC_015 Mobile phone number cannot be of any chars nor spec chars except "-"
+    Given User on the home page
+    And User navigates to register page
+    Then User clicks on Mobile Phone Number textbox
+    Then User provide invalid Mobile Phone Number "<invalid_mpns>" and click tab
+    And User should see the Mobile Phone Number error message "mobile_phone_number_error_message"
     Examples:
-      |  |
+      | invalid_mpns   |
+      | e_invalid_mpn1 |
+      | e_invalid_mpn2 |
+      | e_invalid_mpn3 |
 
- Scenario Outline: TC_016, TC_017 email id cannot be created without "@" sign and "." extensions
-   Examples:
-     |  |
+  Scenario Outline: TC_016, TC_017 email id cannot be created without "@" sign and "." extensions
+    Given User on the home page
+    And User navigates to register page
+    Then User clicks on Email textbox
+    Then User provide invalid Email "<invalid_emails>" and click tab
+    And User should see the Email invalid error message "email_error_message2"
+    Examples:
+      | invalid_emails  |
+      | e_invalid_mail1 |
+      | e_invalid_mail2 |
 
