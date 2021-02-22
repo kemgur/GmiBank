@@ -44,8 +44,12 @@ public class US_007_Stepdefinitions {
     @Given("Navigate to user info page")
     public void navigate_to_user_info_page() {
         updateUserInformationPage.userAktas.click();
-        updateUserInformationPage.userInfo.click();
+       // updateUserInformationPage.userInfo.click();
+      // updateUserInformationPage.ayarlar.click();
+       updateUserInformationPage.giris.click();
     }
+
+
 
     @Given("Delete the mail in the email text box")
     public void delete_the_mail_in_the_email_text_box() {
@@ -76,7 +80,8 @@ public class US_007_Stepdefinitions {
 
     @Then("Then I should see the saved message {string}")
     public void thenIShouldSeeTheSavedMessage(String savedmessage) {
-        Assert.assertTrue(updateUserInformationPage.settingsSavedMessage.getText().contains(savedmessage));
+            Assert.assertTrue(updateUserInformationPage.turkishConfirmation.getText().contains(savedmessage));
+            Assert.assertTrue(updateUserInformationPage.englishConfirmation.getText().contains(savedmessage));
     }
 
     @And("Select the {string} option from the language dropdown")
@@ -86,4 +91,9 @@ public class US_007_Stepdefinitions {
     }
 
 
+    @Then("Then user should see the text {string} on the web page")
+    public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) {
+
+
+    }
 }
