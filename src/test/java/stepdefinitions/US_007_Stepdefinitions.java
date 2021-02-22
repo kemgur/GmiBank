@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import pages.UpdateUserInformationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_007_Stepdefinitions {
 
@@ -85,15 +86,17 @@ public class US_007_Stepdefinitions {
     }
 
     @And("Select the {string} option from the language dropdown")
-    public void selectTheOptionFromTheLanguageDropdown(String language) {
+    public void selectTheOptionFromTheLanguageDropdown(String language) throws InterruptedException {
         Select select=new Select(updateUserInformationPage.languageDropdown);
-        select.selectByVisibleText(language);
+        select.selectByVisibleText(ConfigReader.getProperty(language));
+        ReusableMethods.waitFor(3);
     }
 
 
     @Then("Then user should see the text {string} on the web page")
-    public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) {
-
-
+    public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
+        ReusableMethods.waitFor(3);
+        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.abc.getText());
+        ReusableMethods.waitFor(3);
     }
 }
