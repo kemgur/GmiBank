@@ -87,7 +87,7 @@ public class US_007_Stepdefinitions {
     @And("Select the {string} option from the language dropdown")
     public void selectTheOptionFromTheLanguageDropdown(String language) {
         Select select=new Select(updateUserInformationPage.languageDropdown);
-        select.selectByVisibleText(language);
+        select.selectByVisibleText(ConfigReader.getProperty(language));
     }
 
 
