@@ -13,7 +13,7 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "//input[@name='ssn']")
     public WebElement ssnTextbox;
 
-    @FindBy(xpath = "//div[@class='invalid-feedback']")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[1]")
     public WebElement ssnErrorMessage;
 
     @FindBy(xpath = "//input[@name='firstname']")
