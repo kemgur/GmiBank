@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
             features="src/test/resources/features",
             glue="stepdefinitions",
             tags="@GmiBankStrongPassword",
-            dryRun = false
+            dryRun = true
     )
             public class US003_Runner {
 

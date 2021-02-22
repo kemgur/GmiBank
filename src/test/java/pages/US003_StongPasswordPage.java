@@ -24,6 +24,19 @@ public class US003_StongPasswordPage {
     @FindBy(xpath = "(//li[@class='point'])[1]")
     public  WebElement redPoint;
 
+    @FindBy(xpath = "(//li[@class='point'])[2]")
+    public  WebElement orangePoint;
+
+    @FindBy(xpath = "(//li[@class='point'])[4]")
+    public  WebElement greenPoint;
+
+    @FindBy(xpath = "(//li[@class='point'])[5]")
+    public  WebElement darkGreenPoint;
+
+
+
+
+
     public void scroolPage(){
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
