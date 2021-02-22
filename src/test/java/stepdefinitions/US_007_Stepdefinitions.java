@@ -1,5 +1,4 @@
 package stepdefinitions;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import pages.UpdateUserInformationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US_007_Stepdefinitions {
 
@@ -32,7 +32,7 @@ public class US_007_Stepdefinitions {
 
     @Given("Enter {string} in the password text box")
     public void enter_in_the_password_text_box(String password) {
-       updateUserInformationPage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
+        updateUserInformationPage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
     }
 
     @Given("Click the sign in button")
@@ -44,12 +44,10 @@ public class US_007_Stepdefinitions {
     @Given("Navigate to user info page")
     public void navigate_to_user_info_page() {
         updateUserInformationPage.userAktas.click();
-       // updateUserInformationPage.userInfo.click();
-      // updateUserInformationPage.ayarlar.click();
-       updateUserInformationPage.giris.click();
+        // updateUserInformationPage.userInfo.click();
+        // updateUserInformationPage.ayarlar.click();
+        updateUserInformationPage.giris.click();
     }
-
-
 
     @Given("Delete the mail in the email text box")
     public void delete_the_mail_in_the_email_text_box() {
@@ -69,9 +67,6 @@ public class US_007_Stepdefinitions {
 
     }
 
-
-
-
     @And("Click the save button")
     public void clickTheSaveButton() {
         updateUserInformationPage.saveButton.click();
@@ -80,20 +75,21 @@ public class US_007_Stepdefinitions {
 
     @Then("Then I should see the saved message {string}")
     public void thenIShouldSeeTheSavedMessage(String savedmessage) {
-            Assert.assertTrue(updateUserInformationPage.turkishConfirmation.getText().contains(savedmessage));
-            Assert.assertTrue(updateUserInformationPage.englishConfirmation.getText().contains(savedmessage));
+        Assert.assertTrue(updateUserInformationPage.turkishConfirmation.getText().contains(savedmessage));
+        Assert.assertTrue(updateUserInformationPage.englishConfirmation.getText().contains(savedmessage));
     }
 
     @And("Select the {string} option from the language dropdown")
-    public void selectTheOptionFromTheLanguageDropdown(String language) {
+    public void selectTheOptionFromTheLanguageDropdown(String language) throws InterruptedException {
         Select select=new Select(updateUserInformationPage.languageDropdown);
         select.selectByVisibleText(ConfigReader.getProperty(language));
+        ReusableMethods.waitFor(3);
     }
 
-
     @Then("Then user should see the text {string} on the web page")
-    public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) {
-
-
+    public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
+        ReusableMethods.waitFor(3);
+        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.abc.getText());
+        ReusableMethods.waitFor(3);
     }
 }

@@ -70,7 +70,7 @@ Feature: US_002_system_shouldnt_allow_anyone_to_register_with_invalid_credential
     Then User clicks on New password confirmation textbox
     Then User doesnt provide "new_password_confirmation" and click tab
     And User should see the New password confirmation error message"new_password_confirmation_error_message"
-
+  @wip
   Scenario Outline: TC_010, TC_011, TC_012 SSN number cannot be of any chars nor spec chars except "-"
     Given User on the home page
     And User navigates to register page
