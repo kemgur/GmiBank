@@ -39,9 +39,3 @@ Feature:US_007 System should not allow to make updates with invalid credentials
     And Select the "a_language1" option from the language dropdown
     And Click the save button
     Then Then user should see the text "a_turkish" on the web page
-
-
-
-
-
-
