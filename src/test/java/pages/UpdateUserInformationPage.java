@@ -60,6 +60,9 @@ public class UpdateUserInformationPage {
     @FindBy(partialLinkText = "//*[text()='User settings for [']")
     public WebElement englishConfirmation;
 
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement abc;
+
 
 
 
