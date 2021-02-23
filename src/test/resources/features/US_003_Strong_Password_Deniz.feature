@@ -1,7 +1,7 @@
 @RedPoint
 Feature:
   Background:
-    Given Go to "gmi_url"
+    Given Goto "gmi_url"
     Then Click the login button from the login page
     And Click the register button from the popup window
     And scroll down the page

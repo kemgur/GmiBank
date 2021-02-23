@@ -14,7 +14,7 @@ public class US003_StepDefinitions {
 
     US003_StongPasswordPage strongPassword = new US003_StongPasswordPage();
 
-    @Given("Go to {string}")
+    @Given("Goto {string}")
     public void go_to(String string) {
         Driver.getDriver().get(ConfigReader.getProperty("gmi_url"));
 
