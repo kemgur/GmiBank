@@ -43,10 +43,7 @@ public class US_007_Stepdefinitions {
 
     @Given("Navigate to user info page")
     public void navigate_to_user_info_page() {
-        updateUserInformationPage.userAktas.click();
-        // updateUserInformationPage.userInfo.click();
-        // updateUserInformationPage.ayarlar.click();
-        updateUserInformationPage.giris.click();
+        updateUserInformationPage.user.click();
     }
 
     @Given("Delete the mail in the email text box")
@@ -73,12 +70,6 @@ public class US_007_Stepdefinitions {
 
     }
 
-    @Then("Then I should see the saved message {string}")
-    public void thenIShouldSeeTheSavedMessage(String savedmessage) {
-        Assert.assertTrue(updateUserInformationPage.turkishConfirmation.getText().contains(savedmessage));
-        Assert.assertTrue(updateUserInformationPage.englishConfirmation.getText().contains(savedmessage));
-    }
-
     @And("Select the {string} option from the language dropdown")
     public void selectTheOptionFromTheLanguageDropdown(String language) throws InterruptedException {
         Select select=new Select(updateUserInformationPage.languageDropdown);
@@ -89,7 +80,7 @@ public class US_007_Stepdefinitions {
     @Then("Then user should see the text {string} on the web page")
     public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
         ReusableMethods.waitFor(3);
-        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.abc.getText());
+        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.ssettingSavedMessage.getText());
         ReusableMethods.waitFor(3);
     }
 }
