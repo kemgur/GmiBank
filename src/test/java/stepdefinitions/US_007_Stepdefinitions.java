@@ -92,4 +92,6 @@ public class US_007_Stepdefinitions {
         Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.abc.getText());
         ReusableMethods.waitFor(3);
     }
+
+
 }
