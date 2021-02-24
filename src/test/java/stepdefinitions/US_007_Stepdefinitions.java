@@ -13,10 +13,6 @@ public class US_007_Stepdefinitions {
 
     UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
 
-    @Given("Go to {string}")
-    public void go_to(String gmibank) {
-        Driver.getDriver().get(gmibank);
-    }
 
     @Given("Navigate to sign in page")
     public void navigate_to_sign_in_page() {
@@ -82,5 +78,11 @@ public class US_007_Stepdefinitions {
         ReusableMethods.waitFor(3);
         Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.ssettingSavedMessage.getText());
         ReusableMethods.waitFor(3);
+    }
+
+
+    @Given("user goes to {string} homepage")
+    public void userGoesToHomepage(String gmibank) {
+        Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
     }
 }
