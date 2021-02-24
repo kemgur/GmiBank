@@ -62,6 +62,7 @@ public class Driver {
     static public void closeDriver() {
 
         if (driver != null) {
+            ReusableMethods.waitFor(2);
             driver.close();
             driver = null;
         }
