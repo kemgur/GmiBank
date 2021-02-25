@@ -13,7 +13,6 @@ public class US_007_Stepdefinitions {
 
     UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
 
-
     @Given("Navigate to sign in page")
     public void navigate_to_sign_in_page() {
         updateUserInformationPage.accountMenu.click();
@@ -80,7 +79,6 @@ public class US_007_Stepdefinitions {
         Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.settingSavedMessage.getText());
         ReusableMethods.waitFor(3);
     }
-
 
     @Given("user goes to {string} homepage")
     public void userGoesToHomepage(String gmibank) {

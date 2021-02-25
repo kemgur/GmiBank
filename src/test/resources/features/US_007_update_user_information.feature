@@ -11,7 +11,7 @@ Feature:US_007 System should not allow to make updates with invalid credentials
 
 
   @test1
-  Scenario Outline: TC001, TC002 ,TC003,TC004,TC005,TC006 Email id cannot contain just digits or chars without "@" sign or "." extension
+  Scenario Outline: TC001, TC002 ,TC005,TC006 ,TC007,TC008 Email id cannot contain just digits or chars without "@" sign or "." extension
     And Delete the mail in the email text box
     And Enter a letter-only "<invalidmails>" into the email text box
     Then Then I should see the error message "a_message_error"
