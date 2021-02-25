@@ -44,11 +44,14 @@ public class UpdateUserInformationPage {
 
 
     @FindBy(xpath = "//div[@role='alert']")
-    public WebElement ssettingSavedMessage;
+    public WebElement settingSavedMessage;
 
 
     @FindBy(xpath = "(//a[@aria-haspopup='true'])[2]")
     public WebElement user;
+
+    @FindBy(xpath = "//a[@href='/account/settings']")
+    public WebElement userinfo;
 
 
 
