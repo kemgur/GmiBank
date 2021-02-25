@@ -12,11 +12,6 @@ import utilities.ReusableMethods;
 public class US_007_Stepdefinitions {
 
     UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
-/*
-    @Given("Go to {string}")
-    public void go_to(String gmibank) {
-        Driver.getDriver().get(gmibank);
-    }*/
 
     @Given("Navigate to sign in page")
     public void navigate_to_sign_in_page() {
@@ -44,6 +39,7 @@ public class US_007_Stepdefinitions {
     @Given("Navigate to user info page")
     public void navigate_to_user_info_page() {
         updateUserInformationPage.user.click();
+        updateUserInformationPage.userinfo.click();
     }
 
     @Given("Delete the mail in the email text box")
@@ -80,9 +76,12 @@ public class US_007_Stepdefinitions {
     @Then("Then user should see the text {string} on the web page")
     public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
         ReusableMethods.waitFor(3);
-        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.ssettingSavedMessage.getText());
+        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.settingSavedMessage.getText());
         ReusableMethods.waitFor(3);
     }
 
-
+    @Given("user goes to {string} homepage")
+    public void userGoesToHomepage(String gmibank) {
+        Driver.getDriver().get(ConfigReader.getProperty(gmibank));
+    }
 }
