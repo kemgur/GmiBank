@@ -13,7 +13,7 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "//input[@name='ssn']")
     public WebElement ssnTextbox;
 
-    @FindBy(xpath = "//div[@class='invalid-feedback']")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[1]")
     public WebElement ssnErrorMessage;
 
     @FindBy(xpath = "//input[@name='firstname']")
@@ -31,13 +31,13 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "//input[@name='address']")
     public WebElement addressTextbox;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])")
     public WebElement addressErrorMessage;
 
     @FindBy(xpath = "//input[@name='mobilephone']")
     public WebElement mobilePhoneTextBox;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])")
     public WebElement mobilePhoneErrorMessage;
 
     @FindBy(xpath = "//input[@name='username']")
@@ -63,5 +63,8 @@ public class US_002GmiRegisterPage {
 
     @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
     public WebElement newPasswordConfirmationErrorMessage;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])")
+    public WebElement invalidEmailErrorMessage;
 
 }
