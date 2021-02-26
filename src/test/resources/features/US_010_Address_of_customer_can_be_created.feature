@@ -29,8 +29,7 @@ Feature:
     And user selects "user" from User dropdown menu
     And user clicks on Save button
     Then user should see this message under Address textbox: "required_message"
-
-
+    @hs
   Scenario: TC_002_City should be provided and cannot be left as blank
 
     And user enters an "address" in Address textbox
@@ -41,7 +40,7 @@ Feature:
     And user selects "user" from User dropdown menu
     And user clicks on Save button
     Then user should see this message under City textbox: "required_message"
-@hs
+
   Scenario: TC_003_Country should be typed and cannot be blank
     And user enters an "address" in Address textbox
     And user enters a "city" in City textbox
@@ -50,4 +49,16 @@ Feature:
     And user doesn't select country from Country dropdown menu
     And user selects "user" from User dropdown menu
     And user clicks on Save button
-    Then user shouldn't see this message under Country textbox: "created_message"
+    Then user shouldn't see created_message
+
+  Scenario:TC_004_State should be provided as US state and cannot be blank
+
+    And user enters an "address" in Address textbox
+    And user enters a "city" in City textbox
+    And user enters a "ssn_code" in Ssn Code textbox
+    And user creates "date"
+    And user selects "country" from Country dropdown menu
+    And user doesn't enter a state in State textbox
+    And user selects "user" from User dropdown menu
+    And user clicks on Save button
+    Then user shouldn't see created_message
