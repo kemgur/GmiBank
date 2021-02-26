@@ -13,13 +13,11 @@ Feature:
     @Description
     Scenario: US013_TC01 User should create a description for the new account and it cannot be blank
       Given a data must be entered in the description field
-      Then Should get a warning if the Description field is blank
       And user close the page
 
     @Balance
     Scenario: US013_TC02 User should provide a balance for the first time account creation as Dollar
       Given Money in dollars must be entered in the balance field
-      Then If left blank, an error message should be received
       And user close the page
 
     @AccountType

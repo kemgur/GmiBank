@@ -52,39 +52,39 @@ public class US013_StepDefinitions {
         newAccountPage.createAccount.click();
     }
 
+
     @Given("a data must be entered in the description field")
-    public void aDataMustBeEnteredInTheDescriptionField() {
+    public void aDataMustBeEnteredInTheDescriptionField() throws InterruptedException {
+
         newAccountPage.descriptionTextBox.sendKeys(ConfigReader.getProperty("description_text"));
+        Thread.sleep(3000);
+
     }
 
-    //@Given("Should get a warning if the Description field is blank")
-    //public void should_get_a_warning_if_the_description_field_is_blank() {
-       // Assert.assertTrue(newAccountPage.descriptionError.isDisplayed());
-    //}
 
     @Given("Money in dollars must be entered in the balance field")
-    public void money_in_dollars_must_be_entered_in_the_balance_field() {
+    public void money_in_dollars_must_be_entered_in_the_balance_field() throws InterruptedException {
+
         newAccountPage.balanceTextBox.sendKeys(ConfigReader.getProperty("balance"));
+        Thread.sleep(3000);
     }
 
-    //@Then("If left blank, an error message should be received")
-   // public void if_left_blank_an_error_message_should_be_received() {
-       // Assert.assertTrue(newAccountPage.balanceError.isDisplayed());
-
-   // }
 
     @Given("customer should be able to select their account type from the drop down menu")
-    public void customer_should_be_able_to_select_their_account_type_from_the_drop_down_menu() {
+    public void customer_should_be_able_to_select_their_account_type_from_the_drop_down_menu() throws InterruptedException {
+
         WebElement dropDown = newAccountPage.accountTypeDropDown;
         Select select = new Select(dropDown);
         select.selectByValue("SAVING");
+        Thread.sleep(3000);
     }
 
     @Given("customer should be able to choose account status")
-    public void customer_should_be_able_to_choose_account_status() {
+    public void customer_should_be_able_to_choose_account_status() throws InterruptedException {
         WebElement dropDown = newAccountPage.statusTypeDropDown;
         Select select = new Select(dropDown);
         select.selectByValue("ACTIVE");
+        Thread.sleep(3000);
     }
 
     @Given("should scroll down the page")
@@ -98,7 +98,18 @@ public class US013_StepDefinitions {
     }
 
     @Then("Customer should be able to save when customer presses save button")
-    public void customer_should_be_able_to_save_when_customer_presses_save_button() {
+    public void customer_should_be_able_to_save_when_customer_presses_save_button() throws InterruptedException {
+        newAccountPage.descriptionTextBox.sendKeys(ConfigReader.getProperty("description_text"));
+        newAccountPage.balanceTextBox.sendKeys(ConfigReader.getProperty("balance"));
+        WebElement dropDown = newAccountPage.accountTypeDropDown;
+        Select select = new Select(dropDown);
+        select.selectByValue("INVESTING");
+        Thread.sleep(3000);
+        WebElement dropDown1 = newAccountPage.statusTypeDropDown;
+        Select select1 = new Select(dropDown1);
+        select1.selectByValue("SUESPENDED");
+        Thread.sleep(3000);
+        newAccountPage.scroolPage();
         newAccountPage.saveButton.click();
     }
 
