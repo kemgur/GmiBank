@@ -36,6 +36,15 @@ public class ReusableMethods {
         return target;
     }
 
+    public static void sendText(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    public static void click(WebElement element) {
+        element.click();
+    }
+
 
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
