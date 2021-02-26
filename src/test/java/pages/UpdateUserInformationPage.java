@@ -33,38 +33,25 @@ public class UpdateUserInformationPage {
     @FindBy (xpath = "//input[@id='password']")
     public WebElement passwordTextBox;
 
-    @FindBy(xpath = "//*[text()='aktas User']")
-    public WebElement userAktas;
+
 
     @FindBy (xpath = "//button[@class='btn btn-primary']")
     public WebElement signInSecond;
 
 
-    //@FindBy(xpath = "//*[text()='User Info']")
-   // public WebElement userInfo;
-
-    @FindBy(xpath = "//*[@href='/account/settings']")
-    public WebElement giris;
-
-   // @FindBy(xpath = "//*[text()='Ayarlar']")
-   // public WebElement ayarlar;
-
-
-
     @FindBy(xpath = "//*[text()='This field is invalid']")
     public WebElement errorMessage;
 
-    @FindBy(partialLinkText = "//*[text()='Kullanıcı ayarları [']")
-    public WebElement turkishConfirmation;
-
-    @FindBy(partialLinkText = "//*[text()='User settings for [']")
-    public WebElement englishConfirmation;
 
     @FindBy(xpath = "//div[@role='alert']")
-    public WebElement abc;
+    public WebElement settingSavedMessage;
 
 
+    @FindBy(xpath = "(//a[@aria-haspopup='true'])[2]")
+    public WebElement user;
 
+    @FindBy(xpath = "//a[@href='/account/settings']")
+    public WebElement userinfo;
 
 
 

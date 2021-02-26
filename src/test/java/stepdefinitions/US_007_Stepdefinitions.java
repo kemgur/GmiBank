@@ -10,13 +10,8 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class US_007_Stepdefinitions {
-/*
-    UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
 
-    @Given("Go to {string}")
-    public void go_to(String gmibank) {
-        Driver.getDriver().get(gmibank);
-    }
+    UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
 
     @Given("Navigate to sign in page")
     public void navigate_to_sign_in_page() {
@@ -43,10 +38,8 @@ public class US_007_Stepdefinitions {
 
     @Given("Navigate to user info page")
     public void navigate_to_user_info_page() {
-        updateUserInformationPage.userAktas.click();
-        // updateUserInformationPage.userInfo.click();
-        // updateUserInformationPage.ayarlar.click();
-        updateUserInformationPage.giris.click();
+        updateUserInformationPage.user.click();
+        updateUserInformationPage.userinfo.click();
     }
 
     @Given("Delete the mail in the email text box")
@@ -73,12 +66,6 @@ public class US_007_Stepdefinitions {
 
     }
 
-    @Then("Then I should see the saved message {string}")
-    public void thenIShouldSeeTheSavedMessage(String savedmessage) {
-        Assert.assertTrue(updateUserInformationPage.turkishConfirmation.getText().contains(savedmessage));
-        Assert.assertTrue(updateUserInformationPage.englishConfirmation.getText().contains(savedmessage));
-    }
-
     @And("Select the {string} option from the language dropdown")
     public void selectTheOptionFromTheLanguageDropdown(String language) throws InterruptedException {
         Select select=new Select(updateUserInformationPage.languageDropdown);
@@ -89,12 +76,12 @@ public class US_007_Stepdefinitions {
     @Then("Then user should see the text {string} on the web page")
     public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
         ReusableMethods.waitFor(3);
-        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.abc.getText());
+        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.settingSavedMessage.getText());
         ReusableMethods.waitFor(3);
     }
 
-
-
- */
+    @Given("user goes to {string} homepage")
+    public void userGoesToHomepage(String gmibank) {
+        Driver.getDriver().get(ConfigReader.getProperty(gmibank));
+    }
 }
-
