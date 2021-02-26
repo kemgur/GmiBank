@@ -162,10 +162,20 @@ public class US_010_StepDefinitions {
 
     }
 
-    @Then("user shouldn't see this message under Country textbox: {string}")
+    @Then("user shouldn't see this this message on the page: {string}")
     public void userShouldnTSeeThisMessageUnderCountryTextbox(String created_message) {
-        Assert.assertFalse(customerAdressCreatePage.createdMessage.getText().equals(ConfigReader.getProperty(created_message)));
-        System.out.println(customerAdressCreatePage.createdMessage.getText());
-        //System.out.println(ConfigReader.getProperty(created_message));
+       // System.out.println(Driver.getDriver().switchTo().alert().getText());
+
+    }
+
+    @And("user doesn't enter a state in State textbox")
+    public void userDoesnTEnterAStateInStateTextbox() {
+
+    }
+
+    @Then("user shouldn't see created_message")
+    public void userShouldnTSeeCreated_message() {
+        ReusableMethods.waitFor(1);
+        Assert.assertFalse(customerAdressCreatePage.createdMessage.isDisplayed());
     }
 }

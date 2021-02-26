@@ -10,7 +10,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class US_007_Stepdefinitions {
-
+/*
     UpdateUserInformationPage updateUserInformationPage=new UpdateUserInformationPage();
 
     @Given("Go to {string}")
@@ -94,4 +94,7 @@ public class US_007_Stepdefinitions {
     }
 
 
+
+ */
 }
+

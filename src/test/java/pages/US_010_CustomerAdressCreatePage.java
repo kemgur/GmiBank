@@ -84,4 +84,5 @@ public class US_010_CustomerAdressCreatePage {
 
     @FindBy(xpath = "//div[@class='Toastify__toast-body']")
     public WebElement createdMessage;
+
 }
