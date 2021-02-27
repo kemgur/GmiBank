@@ -14,11 +14,11 @@ public class US_002_StepDefinitions {
 
     US_002GmiHomePage homePage = new US_002GmiHomePage();
     US_002GmiRegisterPage registerPage = new US_002GmiRegisterPage();
-//
-//    @Given("User on the home page")
-//    public void userOnTheLoginPage() {
-//        Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
-//    }
+
+    @Given("User on the home page")
+    public void userOnTheLoginPage() {
+        Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
+    }
 
     @And("User navigates to register page")
     public void userNavigatesToRegisterPage() {

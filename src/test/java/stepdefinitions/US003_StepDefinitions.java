@@ -14,11 +14,11 @@ public class US003_StepDefinitions {
 
     US003_StongPasswordPage strongPassword = new US003_StongPasswordPage();
 
-//    @Given("Go to {string}")
-//    public void go_to(String string) {
-//        Driver.getDriver().get(ConfigReader.getProperty("gmi_url"));
-//
-//    }
+    @Given("Go to {string}")
+    public void go_to(String string) {
+        Driver.getDriver().get(ConfigReader.getProperty("gmi_url"));
+
+    }
 
     @Then("Click the login button from the login page")
     public void click_the_login_button_from_the_login_page() {
