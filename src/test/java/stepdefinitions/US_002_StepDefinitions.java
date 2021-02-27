@@ -18,12 +18,14 @@ public class US_002_StepDefinitions {
     @Given("User on the home page")
     public void userOnTheLoginPage() {
         Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
+        Driver.wait(4);
     }
 
     @And("User navigates to register page")
     public void userNavigatesToRegisterPage() {
         homePage.picture.click();
         homePage.registerButton.click();
+        Driver.wait(4);
     }
 
     @Then("User clicks on SSN textbox")
