@@ -17,4 +17,7 @@ public class US_002GmiHomePage {
     @FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
     public WebElement registerButton;
 
+    @FindBy(xpath = "//*[text()='Sign in']")
+    public WebElement loginButton;
+
 }
