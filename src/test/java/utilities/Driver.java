@@ -313,17 +313,11 @@ public class Driver {
         }
     }
 
-    public static void clickWithTimeOut(WebElement element, int timeout) {
-        for (int i = 0; i < timeout; i++) {
-            try {
-                element.click();
-                return;
-            } catch (WebDriverException e) {
-                wait(1);
-            }
-        }
+    public static void waitAndClick(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
     }
-
     /**
      * executes the given JavaScript command on given web element
      *
@@ -398,4 +392,14 @@ public class Driver {
         return timeNow;
     }
 
+    public static void waitAndSendKeys(WebElement webElement, String str, int timeout){
+        for (int i = 0; i < timeout; i++) {
+            try {
+                webElement.sendKeys(str);
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
+    }
 }

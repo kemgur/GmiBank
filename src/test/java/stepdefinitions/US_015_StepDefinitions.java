@@ -9,7 +9,6 @@ import pages.US_015_MyAccountsPage;
 import pages.US_015_UserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class US_015_StepDefinitions {
     US_002GmiHomePage homePage = new US_002GmiHomePage();
@@ -19,9 +18,10 @@ public class US_015_StepDefinitions {
 
     @And("User navigates to login page")
     public void userNavigatesToLoginPage() {
-        homePage.picture.click();
-        ReusableMethods.waitFor(1);
-        homePage.loginButton.click();
+        Driver.waitAndClick(homePage.picture, 5);
+        Driver.waitAndClick(homePage.loginButton, 5);
+
+        Driver.wait(4);
     }
 
     @Then("User provides {string} username")

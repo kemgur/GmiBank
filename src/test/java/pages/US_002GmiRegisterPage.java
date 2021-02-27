@@ -67,4 +67,7 @@ public class US_002GmiRegisterPage {
     @FindBy(xpath = "(//div[@class='invalid-feedback'])")
     public WebElement invalidEmailErrorMessage;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement signInButton;
+
 }
