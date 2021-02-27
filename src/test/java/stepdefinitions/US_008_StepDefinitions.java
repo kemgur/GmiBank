@@ -153,9 +153,9 @@ public class US_008_StepDefinitions {
         us008PasswordPage.currentPasswordTextbox.clear();
         us008PasswordPage.currentPasswordTextbox.sendKeys(ConfigReader.getProperty("new_password_7chars"));
         us008PasswordPage.newPasswordTextbox.clear();
-        us008PasswordPage.newPasswordTextbox.sendKeys("fatihoz");
+        us008PasswordPage.newPasswordTextbox.sendKeys(ConfigReader.getProperty("current_password"));
         us008PasswordPage.confirmPasswordTextbox.clear();
-        us008PasswordPage.confirmPasswordTextbox.sendKeys("fatihoz");
+        us008PasswordPage.confirmPasswordTextbox.sendKeys(ConfigReader.getProperty("current_password"));
         us008PasswordPage.saveButtonInPasswordPage.click();
     }
 
