@@ -1,4 +1,4 @@
-@wip
+@wipf
 Feature: US 008 Password segment on Homepage should be editable
 Background:
   Given User go to "url"

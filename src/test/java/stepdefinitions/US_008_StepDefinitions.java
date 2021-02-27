@@ -73,8 +73,12 @@ public class US_008_StepDefinitions {
 
     @Then("User See the error message")
     public void user_see_the_error_message(){
-
+    try{
         Assert.assertTrue(us008PasswordPage.errorMessage.isDisplayed());
+    }catch(Exception e){
+        Assert.assertTrue(false);
+    }
+
     }
 
     @Given("User Enter on the new password field least one lowercase char for stronger password")
@@ -106,7 +110,9 @@ public class US_008_StepDefinitions {
     public void user_see_the_level_chart_change_accordingly_second_yellow() {
         try{
             Assert.assertFalse(us008PasswordPage.passwordStrengthPointYellow.isDisplayed());
-        }catch(NoSuchElementException e){}
+        }catch(NoSuchElementException e){
+            Assert.assertTrue(false);
+        }
 
     }
 
@@ -144,6 +150,13 @@ public class US_008_StepDefinitions {
     @Then("User See the password changed message")
     public void user_see_the_password_changed_message() {
         Assert.assertTrue(us008PasswordPage.passwordChangedMessage.isDisplayed());
+        us008PasswordPage.currentPasswordTextbox.clear();
+        us008PasswordPage.currentPasswordTextbox.sendKeys(ConfigReader.getProperty("new_password_7chars"));
+        us008PasswordPage.newPasswordTextbox.clear();
+        us008PasswordPage.newPasswordTextbox.sendKeys("fatihoz");
+        us008PasswordPage.confirmPasswordTextbox.clear();
+        us008PasswordPage.confirmPasswordTextbox.sendKeys("fatihoz");
+        us008PasswordPage.saveButtonInPasswordPage.click();
     }
 
 }
