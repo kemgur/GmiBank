@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.gmibank.utilities.Driver;
 
-public class US_010_CustomerAdressCreatePage {
+public class US_010_and_012_EpployeeCustomerPage {
 
-    public US_010_CustomerAdressCreatePage(){
+    public US_010_and_012_EpployeeCustomerPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
