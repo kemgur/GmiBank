@@ -104,7 +104,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <skipTests>false</skipTests>
                     <includes>
-                        <include>**/runners/*TestRunner*.java</include>
+                        <include>**/com.gmibank.runners/*TestRunner*.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -123,7 +123,7 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                     <useFile>false</useFile>
                     <includes>
-                        <include>**/runners/*TestRunner*.java</include>
+                        <include>**/com.gmibank.runners/*TestRunner*.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
