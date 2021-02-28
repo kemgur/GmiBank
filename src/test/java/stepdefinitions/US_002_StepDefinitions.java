@@ -126,4 +126,6 @@ public class US_002_StepDefinitions {
     public void userShouldSeeTheNewPasswordConfirmationErrorMessage(String errorMessage) {
         Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordConfirmationErrorMessage.getText());
     }
+
+
 }
