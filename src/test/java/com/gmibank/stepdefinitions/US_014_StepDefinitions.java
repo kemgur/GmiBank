@@ -107,7 +107,7 @@ public class US_014_StepDefinitions {
     public void you_should_see_the_date_as_month_day_year_hour_and_minute() {
 
         String actualTime = createAnAccountPage.createDateTextbox.getAttribute("value");
-        String expectedTime = "2020-12-03T13:00";
+        String expectedTime = "2020-03-12T13:00";
         Assert.assertEquals(expectedTime,actualTime);
 
 
