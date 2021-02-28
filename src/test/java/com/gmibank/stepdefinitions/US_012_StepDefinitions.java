@@ -1,4 +1,4 @@
-package stepdefinitions;
+package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_010_and_012_EmployeeCustomerPage;
 import com.gmibank.utilities.ConfigReader;
