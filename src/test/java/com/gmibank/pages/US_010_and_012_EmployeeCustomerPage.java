@@ -120,5 +120,8 @@ public class US_010_and_012_EmployeeCustomerPage {
 
     @FindBy(xpath = "//thead//th")
     public List<WebElement> headers;
+
+    @FindBy(xpath = "//li[@class='page-item disabled']")
+    public WebElement lastPage;
 }
 

@@ -8,8 +8,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import javax.swing.*;
 
 public class US_012_StepDefinitions {
 
@@ -63,15 +67,13 @@ public class US_012_StepDefinitions {
 
     @And("Then user should see {string}")
     public void thenUserShouldSee(String arg0) {
-        Assert.assertTrue(employeeCustomerPage.delete_message.isDisplayed());
-        System.out.println(employeeCustomerPage.delete_message.getText());
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(employeeCustomerPage.update_message.isDisplayed());
+
     }
     @When("user clicks on Delete button")
     public void user_clicks_on_delete_button() {
-
-        WebElement son = Driver.getDriver().findElement(By.xpath("//li[@class='page-item disabled']"));
-        son.click();
-       employeeCustomerPage.deleteButton.click();
+        employeeCustomerPage.deleteButton.click();
     }
 
     @When("there is a Confirm Delete pop up")
