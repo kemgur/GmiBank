@@ -6,13 +6,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
-import pages.US_010_CustomerAdressCreatePage;
+import pages.US_010_and_012_EpployeeCustomerPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class US_010_StepDefinitions {
-    US_010_CustomerAdressCreatePage customerAdressCreatePage= new US_010_CustomerAdressCreatePage();
+    US_010_and_012_EpployeeCustomerPage customerAdressCreatePage= new US_010_and_012_EpployeeCustomerPage();
 
     @When("user goes to {string}")
     public void user_goes_to(String GmiBank_url) {
@@ -110,6 +110,7 @@ public class US_010_StepDefinitions {
 
     @When("user enters a {string} in Ssn Code textbox")
     public void user_enters_a_code_in_ssn_code_textbox(String ssn_code) {
+        customerAdressCreatePage.ssnTextBox.clear();
         customerAdressCreatePage.ssnTextBox.sendKeys(ConfigReader.getProperty(ssn_code));
     }
 

@@ -29,7 +29,7 @@ Feature:
     And user selects "user" from User dropdown menu
     And user clicks on Save button
     Then user should see this message under Address textbox: "required_message"
-    @hs
+
   Scenario: TC_002_City should be provided and cannot be left as blank
 
     And user enters an "address" in Address textbox
