@@ -141,8 +141,4 @@ public class ReusableMethods {
         element.clear();
         element.sendKeys(value);
     }
-
-    public static void click(WebElement element) {
-        element.click();
-    }
 }
