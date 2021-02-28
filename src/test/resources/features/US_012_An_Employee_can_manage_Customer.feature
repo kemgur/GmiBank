@@ -24,7 +24,6 @@ Feature: US_012_ An Employee can manage customer
       | address_control            |
       | create_date_control        |
 
-  @hs
   Scenario Outline: TC_002_All customers should show up on manage customers module populating the account information of the customer
     And user clicks on page 2
     And user sees that the first customer's "<cellno>" is not empty
@@ -62,7 +61,6 @@ Feature: US_012_ An Employee can manage customer
   Scenario: TC_005_There should be an Edit button where all customer information can be populated
     Then there should be Edit button  of first customer on the page that opens
 
-
   Scenario: TC_006_The Edit portal can allow user to create or update the user info
     And user clicks on first customer's Edit button
     And user enters a "first_name" in First Name textbox
@@ -79,8 +77,9 @@ Feature: US_012_ An Employee can manage customer
     And user selects "country" from Country dropdown menu
     And user selects "user" from User dropdown menu
     And user clicks on Save button
-    And Then user should see "delete_message"
+    And Then user should see "update_message"
 
+    @hs
   Scenario: TC_007_User can delete a customer, but seeing a message if the user is sure about deletion
     And user clicks on Delete button
     And there is a Confirm Delete pop up
