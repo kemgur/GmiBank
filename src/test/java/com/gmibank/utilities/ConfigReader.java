@@ -1,4 +1,4 @@
-package utilities;
+package com.gmibank.utilities;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

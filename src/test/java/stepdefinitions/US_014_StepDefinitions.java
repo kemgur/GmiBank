@@ -1,20 +1,15 @@
 package stepdefinitions;
 
-import afu.org.checkerframework.checker.units.UnitsTools;
+import com.gmibank.utilities.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import pages.US_001GmiBankHomePage;
 import pages.US_014GmiBankCreateAnAccountPage;
 import pages.US_014GmiBankSignInPage;
-import utilities.ConfigReader;
-
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class US_014_StepDefinitions {
 

@@ -1,9 +1,9 @@
-package pages;
+package com.gmibank.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
+import com.gmibank.utilities.Driver;
 
 public class US_002GmiHomePage {
 
@@ -16,5 +16,8 @@ public class US_002GmiHomePage {
 
     @FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
     public WebElement registerButton;
+
+    @FindBy(xpath = "//*[text()='Sign in']")
+    public WebElement loginButton;
 
 }

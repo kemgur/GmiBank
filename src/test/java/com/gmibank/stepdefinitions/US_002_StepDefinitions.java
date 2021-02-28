@@ -1,29 +1,31 @@
-package stepdefinitions;
+package com.gmibank.stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import pages.US_002GmiHomePage;
-import pages.US_002GmiRegisterPage;
-import utilities.ConfigReader;
-import utilities.Driver;
+import com.gmibank.pages.US_002GmiHomePage;
+import com.gmibank.pages.US_002GmiRegisterPage;
+import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.Driver;
 
 public class US_002_StepDefinitions {
 
     US_002GmiHomePage homePage = new US_002GmiHomePage();
     US_002GmiRegisterPage registerPage = new US_002GmiRegisterPage();
 
-    @Given("User on the login page")
+    @Given("User on the home page")
     public void userOnTheLoginPage() {
         Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
+        Driver.wait(4);
     }
 
     @And("User navigates to register page")
     public void userNavigatesToRegisterPage() {
         homePage.picture.click();
         homePage.registerButton.click();
+        Driver.wait(4);
     }
 
     @Then("User clicks on SSN textbox")
@@ -127,5 +129,27 @@ public class US_002_StepDefinitions {
         Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordConfirmationErrorMessage.getText());
     }
 
+<<<<<<< HEAD:src/test/java/stepdefinitions/US_002_StepDefinitions.java
 
+=======
+    @Then("User provide invalid SSN {string} and click tab")
+    public void userProvideInvalidSSNAndClickTab(String invalidSsn) {
+        registerPage.ssnTextbox.sendKeys(ConfigReader.getProperty(invalidSsn) + Keys.TAB);
+    }
+
+    @Then("User provide invalid Mobile Phone Number {string} and click tab")
+    public void userProvideInvalidMobilePhoneNumberAndClickTab(String invalidMpn) {
+        registerPage.mobilePhoneTextBox.sendKeys(ConfigReader.getProperty(invalidMpn) + Keys.TAB);
+    }
+
+    @Then("User provide invalid Email {string} and click tab")
+    public void userProvideInvalidEmailAndClickTab(String invalidEmails) {
+        registerPage.emailTextbox.sendKeys(ConfigReader.getProperty(invalidEmails) + Keys.TAB);
+    }
+
+    @And("User should see the Email invalid error message {string}")
+    public void userShouldSeeTheEmailInvalidErrorMessage(String errorMessage) {
+        Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.invalidEmailErrorMessage.getText());
+    }
+>>>>>>> main:src/test/java/com/gmibank/stepdefinitions/US_002_StepDefinitions.java
 }

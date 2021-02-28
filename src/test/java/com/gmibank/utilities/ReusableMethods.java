@@ -1,4 +1,4 @@
-package utilities;
+package com.gmibank.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -137,4 +137,12 @@ public class ReusableMethods {
         return element;
     }
 
+    public static void sendText(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    public static void click(WebElement element) {
+        element.click();
+    }
 }

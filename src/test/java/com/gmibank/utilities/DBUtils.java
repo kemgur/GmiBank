@@ -1,4 +1,4 @@
-package utilities;
+package com.gmibank.utilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,11 +1,11 @@
-package stepdefinitions;
+package com.gmibank.stepdefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.Driver;
+import com.gmibank.utilities.Driver;
 
 public class Hooks {
 
@@ -21,7 +21,7 @@ public class Hooks {
         if (scenario.isFailed()) {
             scenario.attach(screenshot, "image/png","screenshots");
         }
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 
