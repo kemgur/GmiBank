@@ -6,13 +6,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
-import com.gmibank.pages.US_010_CustomerAdressCreatePage;
+import com.gmibank.pages.US_010_and_012_EpployeeCustomerPage;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 
 public class US_010_StepDefinitions {
-    US_010_CustomerAdressCreatePage customerAdressCreatePage= new US_010_CustomerAdressCreatePage();
+    US_010_and_012_EpployeeCustomerPage customerAdressCreatePage= new US_010_and_012_EpployeeCustomerPage();
 
     @When("user goes to {string}")
     public void user_goes_to(String GmiBank_url) {
