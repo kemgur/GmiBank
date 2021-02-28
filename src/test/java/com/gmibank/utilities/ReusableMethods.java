@@ -137,4 +137,12 @@ public class ReusableMethods {
         return element;
     }
 
+    public static void sendText(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    public static void click(WebElement element) {
+        element.click();
+    }
 }
