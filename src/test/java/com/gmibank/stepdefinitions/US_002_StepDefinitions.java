@@ -1,5 +1,6 @@
 package com.gmibank.stepdefinitions;
 
+import io.cucumber.core.runner.Options;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,31 +19,34 @@ public class US_002_StepDefinitions {
     @Given("User on the home page")
     public void userOnTheLoginPage() {
         Driver.getDriver().get(ConfigReader.getProperty("gmi_home_page"));
-        Driver.wait(4);
+        Driver.wait(2);
     }
 
     @And("User navigates to register page")
     public void userNavigatesToRegisterPage() {
         homePage.picture.click();
+        Driver.wait(2);
         homePage.registerButton.click();
-        Driver.wait(4);
+        Driver.wait(2);
     }
 
     @Then("User clicks on SSN textbox")
-    public void userClicksOnSSNTextbox() throws InterruptedException {
+    public void userClicksOnSSNTextbox(){
         registerPage.ssnTextbox.click();
-        Thread.sleep(5000);
+        Driver.wait(2);
 
     }
 
     @Then("User doesnt provide {string} and click tab")
     public void userDoesntProvideAndClickTab(String data) {
+        Driver.wait(2);
         registerPage.ssnTextbox.sendKeys(Keys.TAB);
     }
 
 
     @Then("User clicks on First Name textbox")
     public void userClicksOnFirstNameTextbox() {
+        Driver.wait(2);
         registerPage.firstNameTextbox.click();
     }
 

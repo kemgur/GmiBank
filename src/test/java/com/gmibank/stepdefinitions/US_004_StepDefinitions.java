@@ -31,11 +31,11 @@ public class US_004_StepDefinitions {
         us_004SignInPage.HomeSignInButton.click();
     }
 
-    @Then("User clicks on username textbox")
+    /*@Then("User clicks on username textbox")
     public void userClicksOnUsernameTextbox() throws InterruptedException {
         us_004SignInPage.usernameTextbox.click();
         Thread.sleep(5000);
-    }
+    }*/
 
     @Then("User enter valid {string}")
     public void userEnterValid(String username) {
