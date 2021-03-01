@@ -2,6 +2,7 @@ package com.gmibank.stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import com.gmibank.pages.US_002GmiHomePage;
@@ -10,6 +11,7 @@ import com.gmibank.pages.US_015_LoginPage;
 import com.gmibank.pages.US_015_UserPage;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.Driver;
+import org.openqa.selenium.support.ui.Select;
 
 public class DemoStepDefinitions {
     US_002GmiRegisterPage registerPage = new US_002GmiRegisterPage();
@@ -68,7 +70,7 @@ public class DemoStepDefinitions {
         Driver.wait(4);
     }
 
-    @Then("Login to the manager account {string} {string}")
+    @Then("Login to the employee account {string} {string}")
     public void login_to_the_manager_account(String username, String password) {
         Driver.waitAndClick(userPage.signInAgain, 5);
 
@@ -82,8 +84,8 @@ public class DemoStepDefinitions {
         Driver.wait(4);
     }
 
-    @Then("Manager integrates bank account to registered user")
-    public void manager_integrates_bank_account_to_registered_user() {
+    @Then("Employee integrates bank account to registered user")
+    public void employee_integrates_bank_account_to_registered_user() {
         Driver.waitAndClick(userPage.myOperations, 5);
         Driver.waitAndClick(userPage.manageCustomers, 5);
         Driver.waitAndClick(userPage.createNewCustomer, 5);
@@ -107,27 +109,40 @@ public class DemoStepDefinitions {
 
     }
 
-    @Then("Logging out from the manager account")
-    public void logging_out_from_the_manager_account() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("Logging out from the employee account")
+    public void logging_out_from_the_employee_account() {
+        Driver.waitAndClick(userPage.tus, 5);
+        Driver.waitAndClick(userPage.cikis, 5);
     }
 
     @Then("User logs into his-her own account")
     public void user_logs_into_his_her_own_account() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Driver.waitAndClick(userPage.signInAgain, 5);
+        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigReader.getProperty("demo_username"), 5);
+        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigReader.getProperty("demo_password"), 5);
+        Driver.waitAndClick(loginPage.signInButton, 5);
     }
 
     @Then("User makes money transfer")
     public void user_makes_money_transfer() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       Driver.waitAndClick(userPage.myOperations, 5);
+        Driver.waitAndClick(userPage.transferMoney, 5);
+        Select from = new Select(userPage.fromDD);
+        from.selectByIndex(1);
+        Select to = new Select(userPage.toDD);
+        to.selectByIndex(1);
+
+        Driver.waitAndSendKeys(userPage.balance, ConfigReader.getProperty("demo_balance"), 5);
+        userPage.balanceCent.clear();
+        Driver.waitAndSendKeys(userPage.balanceCent, ConfigReader.getProperty("demo_balance_cent"), 5);
+        Driver.waitAndSendKeys(userPage.descriptionTextbox, ConfigReader.getProperty("demo_description"), 5);
+
+        Driver.waitAndClick(userPage.makeTransferButton, 5);
     }
 
     @Then("User verify his-her money transfer")
     public void user_verify_his_her_money_transfer() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Driver.wait(1);
+        Assert.assertTrue(userPage.transferConfirm.isDisplayed());
     }
 }
