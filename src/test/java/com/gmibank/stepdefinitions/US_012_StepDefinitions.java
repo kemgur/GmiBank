@@ -96,30 +96,19 @@ public class US_012_StepDefinitions {
 
     @When("there is a Confirm Delete pop up")
     public void there_is_a_confirm_delete_pop_up() {
-        ReusableMethods.waitFor(2);
-        employeeCustomerPage.deleteConfirmButton.click();
-    }
-
-    @Then("user should see {string}")
-    public void userShouldSee(String delete_message) {
-        Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
-        System.out.println(employeeCustomerPage.delete_message.getText());
-    }
-
-    @And("user clicks on Delete button at Confirm pop up")
-    public void userClicksOnDeleteButtonAtConfirmPopUp() {
-        employeeCustomerPage.deleteConfirmButton.click();
-    }
-
-    @And("user clicks on Delete-confirm button")
-    public void userClicksOnDeleteConfirmButton() {
-        ReusableMethods.waitFor(2);
-        employeeCustomerPage.deleteConfirmButton.click();
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(employeeCustomerPage.confirmPopUp.isDisplayed());
 
     }
     @Then("user should see {string} at the and")
     public void userShouldSeeAtTheAnd(String delete_message) {
+       ReusableMethods.waitFor(1);
+       Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
+    }
+
+    @And("user clicks on Delete-confirm button")
+    public void userClicksOnDeleteConfirmButton() {
         ReusableMethods.waitFor(1);
-        Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
+        employeeCustomerPage.deleteConfirmButton.click();
     }
 }

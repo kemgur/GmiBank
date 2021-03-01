@@ -126,5 +126,8 @@ public class US_010_and_012_EmployeeCustomerPage {
 
     @FindBy(linkText = "»»")
     public WebElement lastPage;
+
+    @FindBy(xpath = "//h5[@class='modal-title']")
+    public WebElement confirmPopUp;
 }
 
