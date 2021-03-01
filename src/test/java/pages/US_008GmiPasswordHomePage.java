@@ -40,16 +40,16 @@ public class US_008GmiPasswordHomePage {
     @FindBy(xpath = "//li[@style='background-color: rgb(255, 0, 0);']")
     public WebElement passwordStrengthPointRed;
 
-    @FindBy(xpath = "//li[@style='background-color: rgb(255, 153, 0);'][1]")
+    @FindBy(xpath = "//li[@style='background-color: rgb(255, 153, 0);'][2]")
     public WebElement passwordStrengthPointOrange;
 
-    @FindBy(xpath = "//li[@style='background-color: rgb(255, 255, 0, 1);']")
+    @FindBy(xpath = "//li[@style='background-color: rgb(255, 255, 0);'][3]")
     public WebElement passwordStrengthPointYellow;
 
-    @FindBy(xpath = "(//li[@style='background-color: rgb(153, 255, 0);'])[1]")
+    @FindBy(xpath = "(//li[@style='background-color: rgb(153, 255, 0);'])[4]")
     public WebElement passwordStrengthPointLime;
 
-    @FindBy(xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[1]")
+    @FindBy(xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[5]")
     public WebElement passwordStrengthPointGreen;
 
     @FindBy(xpath = "//input[@name='confirmPassword']")
