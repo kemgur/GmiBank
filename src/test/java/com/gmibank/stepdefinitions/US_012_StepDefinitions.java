@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import javax.swing.*;
+import java.util.List;
 
 public class US_012_StepDefinitions {
 
@@ -73,11 +74,29 @@ public class US_012_StepDefinitions {
     }
     @When("user clicks on Delete button")
     public void user_clicks_on_delete_button() {
-        employeeCustomerPage.deleteButton.click();
+        employeeCustomerPage.lastPage.click();
+
+        ReusableMethods.waitFor(1);
+
+        int size = employeeCustomerPage.rows.size();
+
+        WebElement lastDelete= Driver.getDriver().findElement(By.xpath("(//a[@class='btn btn-danger btn-sm'])["+size+"]"));
+
+        Actions actions = new Actions(Driver.getDriver());
+
+        if(size<17) {
+            actions.sendKeys(Keys.PAGE_UP).perform();
+        }
+
+        ReusableMethods.waitFor(2);
+
+        lastDelete.click();
+
     }
 
     @When("there is a Confirm Delete pop up")
     public void there_is_a_confirm_delete_pop_up() {
+        ReusableMethods.waitFor(2);
         employeeCustomerPage.deleteConfirmButton.click();
     }
 
@@ -85,5 +104,22 @@ public class US_012_StepDefinitions {
     public void userShouldSee(String delete_message) {
         Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
         System.out.println(employeeCustomerPage.delete_message.getText());
+    }
+
+    @And("user clicks on Delete button at Confirm pop up")
+    public void userClicksOnDeleteButtonAtConfirmPopUp() {
+        employeeCustomerPage.deleteConfirmButton.click();
+    }
+
+    @And("user clicks on Delete-confirm button")
+    public void userClicksOnDeleteConfirmButton() {
+        ReusableMethods.waitFor(2);
+        employeeCustomerPage.deleteConfirmButton.click();
+
+    }
+    @Then("user should see {string} at the and")
+    public void userShouldSeeAtTheAnd(String delete_message) {
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
     }
 }

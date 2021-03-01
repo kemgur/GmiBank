@@ -106,7 +106,7 @@ public class US_010_and_012_EmployeeCustomerPage {
     @FindBy(xpath = "//a[@class='btn btn-danger btn-sm']")
     public WebElement deleteButton;
 
-    @FindBy(id = "jhi-confirm-delete-tPCustomer")
+    @FindBy(xpath = "//button[@class='btn btn-danger']")
     public WebElement deleteConfirmButton;
 
     @FindBy(xpath = "//div[@class='Toastify__toast-body']")
@@ -121,7 +121,10 @@ public class US_010_and_012_EmployeeCustomerPage {
     @FindBy(xpath = "//thead//th")
     public List<WebElement> headers;
 
-    @FindBy(xpath = "//li[@class='page-item disabled']")
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> rows;
+
+    @FindBy(linkText = "»»")
     public WebElement lastPage;
 }
 

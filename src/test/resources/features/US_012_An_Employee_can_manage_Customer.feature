@@ -79,12 +79,14 @@ Feature: US_012_ An Employee can manage customer
     And user clicks on Save button
     And Then user should see "update_message"
 
-    @hs
+@hs
   Scenario: TC_007_User can delete a customer, but seeing a message if the user is sure about deletion
     And user clicks on Delete button
     And there is a Confirm Delete pop up
-    And user clicks on Delete button
-    Then user should see "delete_message"
+    And user clicks on Delete-confirm button
+    Then user should see "delete_message" at the and
+
+
 
     
 
