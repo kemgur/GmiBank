@@ -26,7 +26,7 @@ public class US_015_UserPage {
     @FindBy(xpath = "(//a[@class='page-link'])[9]")
     public WebElement lastPageButton;
 
-    @FindBy(xpath = "//a[@href='/admin/user-management/dt35/edit']")
+    @FindBy(xpath = "//a[@href='/admin/user-management/dteam30/edit']")
     public WebElement team30DemoEditButton;
 
     @FindBy(xpath = "//input[@name='activated']")
