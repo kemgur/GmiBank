@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features="src/test/resources/features",
         glue= "com/gmibank/stepdefinitions",
         dryRun = false,
-        tags = "@hs"
+        tags = "@Demo"
 )
 
 public class Runner {
