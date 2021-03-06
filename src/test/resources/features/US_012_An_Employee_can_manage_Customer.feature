@@ -57,7 +57,6 @@ Feature: US_012_ An Employee can manage customer
     And user click on the first customer's View button
     Then there should be Edit button at the bottom and left
 
-
   Scenario: TC_005_There should be an Edit button where all customer information can be populated
     Then there should be Edit button  of first customer on the page that opens
 
