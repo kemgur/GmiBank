@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.gmibank.pages.US_010_and_012_EmployeeCustomerPage;
@@ -69,35 +71,42 @@ public class US_010_StepDefinitions {
 
     @When("user enters a {string} in First Name textbox")
     public void user_enters_a_in_first_name_textbox(String first_name) {
+        employeeCustomerPage.firstnameTextBox.clear();
         employeeCustomerPage.firstnameTextBox.sendKeys(ConfigReader.getProperty(first_name));
     }
 
     @When("user enters a {string} in Last Name textbox")
     public void user_enters_a_in_last_name_textbox(String last_name) {
+        employeeCustomerPage.lastnameTextBox.clear();
         employeeCustomerPage.lastnameTextBox.sendKeys(ConfigReader.getProperty(last_name));
     }
 
     @When("user enters a {string} in Middle Initial textbox")
     public void user_enters_a_in_middle_initial_textbox(String middle_initial) {
+        employeeCustomerPage.middleinitialTextBox.clear();
         employeeCustomerPage.middleinitialTextBox.sendKeys(ConfigReader.getProperty(middle_initial));
     }
 
     @When("user enters a {string} in Email textbox")
     public void user_enters_a_in_email_textbox(String email) {
+        employeeCustomerPage.emailTextBox.clear();
         employeeCustomerPage.emailTextBox.sendKeys(ConfigReader.getProperty(email));
     }
    @When("user enters a {string} in Mobile Phone Number textbox")
     public void user_enters_a_in_mobile_phone_number_textbox(String mobil_phone_number) {
+       employeeCustomerPage.mobilphonenumberTextBox.clear();
         employeeCustomerPage.mobilphonenumberTextBox.sendKeys(ConfigReader.getProperty(mobil_phone_number));
     }
 
     @When("user enters a {string} in Phone Number textbox")
     public void user_enters_a_in_phone_number_textbox(String phone_number) {
-       employeeCustomerPage.phonenumberTextBox.sendKeys(ConfigReader.getProperty(phone_number));
+        employeeCustomerPage.phonenumberTextBox.clear();
+        employeeCustomerPage.phonenumberTextBox.sendKeys(ConfigReader.getProperty(phone_number));
     }
 
     @When("user enters a {string} in Zip Code textbox")
     public void user_enters_a_in_zip_code_textbox(String zip_code) {
+        employeeCustomerPage.zipcodeTextBox.clear();
         employeeCustomerPage.zipcodeTextBox.sendKeys(ConfigReader.getProperty(zip_code));
     }
 
@@ -108,6 +117,7 @@ public class US_010_StepDefinitions {
 
     @When("user enters a {string} in City textbox")
     public void user_enters_a_in_city_textbox(String city) {
+        employeeCustomerPage.cityTextBox.clear();
         employeeCustomerPage.cityTextBox.sendKeys(ConfigReader.getProperty(city));
     }
 
@@ -119,6 +129,7 @@ public class US_010_StepDefinitions {
 
     @When("user creates {string}")
     public void user_creates(String date) {
+
        employeeCustomerPage.createDate.sendKeys(ConfigReader.getProperty(date));
     }
 
@@ -130,6 +141,7 @@ public class US_010_StepDefinitions {
 
     @When("user selects {string} from User dropdown menu")
     public void user_selects_from_user_dropdown_menu(String user) {
+
        // Select select = new Select(employeeCustomerPage.userDropdown);
         //select.selectByVisibleText(ConfigReader.getProperty(user));
     }

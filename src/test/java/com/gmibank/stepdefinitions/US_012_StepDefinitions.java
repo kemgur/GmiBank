@@ -51,6 +51,8 @@ public class US_012_StepDefinitions {
 
     @Then("there should be Edit button at the bottom and left")
     public void thereShouldBeEditButtonAtTheBottomAndLeft() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         Assert.assertTrue(employeeCustomerPage.editViewButton.isDisplayed());
     }
 
