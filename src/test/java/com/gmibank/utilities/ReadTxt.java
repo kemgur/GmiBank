@@ -1,7 +1,8 @@
 package com.gmibank.utilities;
-/*
-import gmibank.pojos.Customer;
-import gmibank.pojos.States;
+
+
+
+import com.gmibank.pojos.Applicants;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class ReadTxt {
 
-
+/*
     public static List<Customer> returnCustomer(String filePath){
         List<Customer>all = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(ConfigurationReader.getProperty(filePath)))) {
@@ -36,30 +37,30 @@ public class ReadTxt {
     }
 
 
-
-    public static List<Customer> returnCustomerSNN(String filePath){
-        List<Customer>all = new ArrayList<>();
+*/
+    public static List<Applicants> returnCustomerSNN(String filePath){
+        List<Applicants>all = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
             System.out.println(line);
             int i = 0;
             while (line != null) {
-                Customer customer = new Customer();
-                customer.setSsn(line.split(",")[0]);
+                Applicants applicants = new Applicants();
+                applicants.setSsn(line.split(",")[0]);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
 
                 System.out.println(i++);
 
-                all.add(customer);
+                all.add(applicants);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         return all;
-    }
-
+    }}
+/*
     public static List<Customer> readTxtData(String filePath)throws  Exception{
         List<Customer> list = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filePath));
