@@ -1,18 +1,23 @@
 package com.gmibank.stepdefinitions;
 
+import com.gmibank.pages.US_010_and_012_EmployeeCustomerPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import com.gmibank.pages.US_010_and_012_EpployeeCustomerPage;
+
+import com.gmibank.pages.US_010_and_012_EmployeeCustomerPage;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 
+
 public class US_010_StepDefinitions {
-    US_010_and_012_EpployeeCustomerPage customerAdressCreatePage= new US_010_and_012_EpployeeCustomerPage();
+    US_010_and_012_EmployeeCustomerPage employeeCustomerPage= new US_010_and_012_EmployeeCustomerPage();
 
     @When("user goes to {string}")
     public void user_goes_to(String GmiBank_url) {
@@ -21,81 +26,88 @@ public class US_010_StepDefinitions {
 
     @And("user clicks on SignIn Dropdown menu")
     public void userClicksOnSignInDropdownMenu() {
-        customerAdressCreatePage.SignInDropdown.click();
+        employeeCustomerPage.SignInDropdown.click();
     }
 
     @When("user clicks on Sign In  link")
     public void user_clicks_on_sign_in_link() {
-        customerAdressCreatePage.SignIn.click();
+        employeeCustomerPage.SignIn.click();
     }
 
     @When("user sends valid employee {string} to username textbox")
     public void user_sends_valid_employee_to_username_textbox(String employee_username) {
-        customerAdressCreatePage.usernameTextBox.sendKeys(ConfigReader.getProperty(employee_username));
+        employeeCustomerPage.usernameTextBox.sendKeys(ConfigReader.getProperty(employee_username));
 
     }
 
     @When("user enters valid employee {string} in the password textbox")
     public void user_enters_valid_employee_in_the_password_textbox(String employee_password) {
-        customerAdressCreatePage.passwordTextBox.sendKeys(ConfigReader.getProperty(employee_password));
+        employeeCustomerPage.passwordTextBox.sendKeys(ConfigReader.getProperty(employee_password));
 
     }
 
     @When("user clicks on Sign In button")
     public void user_clicks_on_sign_in_button() throws InterruptedException {
-        customerAdressCreatePage.SignInButton.click();
+        employeeCustomerPage.SignInButton.click();
 
     }
 
     @When("user clicks on My Operations link")
     public void user_clicks_on_my_operations_link() {
-        customerAdressCreatePage.myOperations.click();
+        employeeCustomerPage.myOperations.click();
 
     }
 
     @When("user clicks on Manage Customers")
     public void user_clicks_on_manage_customers() {
 
-        customerAdressCreatePage.manageCustomers.click();
+        employeeCustomerPage.manageCustomers.click();
     }
 
     @When("user clicks on Create a new Customer link")
     public void user_clicks_on_create_a_new_customer_link() {
-        customerAdressCreatePage.createNewCustomer.click();
+        employeeCustomerPage.createNewCustomer.click();
     }
 
     @When("user enters a {string} in First Name textbox")
     public void user_enters_a_in_first_name_textbox(String first_name) {
-        customerAdressCreatePage.firstnameTextBox.sendKeys(ConfigReader.getProperty(first_name));
+        employeeCustomerPage.firstnameTextBox.clear();
+        employeeCustomerPage.firstnameTextBox.sendKeys(ConfigReader.getProperty(first_name));
     }
 
     @When("user enters a {string} in Last Name textbox")
     public void user_enters_a_in_last_name_textbox(String last_name) {
-        customerAdressCreatePage.lastnameTextBox.sendKeys(ConfigReader.getProperty(last_name));
+        employeeCustomerPage.lastnameTextBox.clear();
+        employeeCustomerPage.lastnameTextBox.sendKeys(ConfigReader.getProperty(last_name));
     }
 
     @When("user enters a {string} in Middle Initial textbox")
     public void user_enters_a_in_middle_initial_textbox(String middle_initial) {
-        customerAdressCreatePage.middleinitialTextBox.sendKeys(ConfigReader.getProperty(middle_initial));
+        employeeCustomerPage.middleinitialTextBox.clear();
+        employeeCustomerPage.middleinitialTextBox.sendKeys(ConfigReader.getProperty(middle_initial));
     }
 
     @When("user enters a {string} in Email textbox")
     public void user_enters_a_in_email_textbox(String email) {
-        customerAdressCreatePage.emailTextBox.sendKeys(ConfigReader.getProperty(email));
+        employeeCustomerPage.emailTextBox.clear();
+        employeeCustomerPage.emailTextBox.sendKeys(ConfigReader.getProperty(email));
     }
    @When("user enters a {string} in Mobile Phone Number textbox")
     public void user_enters_a_in_mobile_phone_number_textbox(String mobil_phone_number) {
-        customerAdressCreatePage.mobilphonenumberTextBox.sendKeys(ConfigReader.getProperty(mobil_phone_number));
+       employeeCustomerPage.mobilphonenumberTextBox.clear();
+        employeeCustomerPage.mobilphonenumberTextBox.sendKeys(ConfigReader.getProperty(mobil_phone_number));
     }
 
     @When("user enters a {string} in Phone Number textbox")
     public void user_enters_a_in_phone_number_textbox(String phone_number) {
-       customerAdressCreatePage.phonenumberTextBox.sendKeys(ConfigReader.getProperty(phone_number));
+        employeeCustomerPage.phonenumberTextBox.clear();
+        employeeCustomerPage.phonenumberTextBox.sendKeys(ConfigReader.getProperty(phone_number));
     }
 
     @When("user enters a {string} in Zip Code textbox")
     public void user_enters_a_in_zip_code_textbox(String zip_code) {
-        customerAdressCreatePage.zipcodeTextBox.sendKeys(ConfigReader.getProperty(zip_code));
+        employeeCustomerPage.zipcodeTextBox.clear();
+        employeeCustomerPage.zipcodeTextBox.sendKeys(ConfigReader.getProperty(zip_code));
     }
 
     @When("user doesn't enter  anything in Adress textbox")
@@ -105,45 +117,49 @@ public class US_010_StepDefinitions {
 
     @When("user enters a {string} in City textbox")
     public void user_enters_a_in_city_textbox(String city) {
-        customerAdressCreatePage.cityTextBox.sendKeys(ConfigReader.getProperty(city));
+        employeeCustomerPage.cityTextBox.clear();
+        employeeCustomerPage.cityTextBox.sendKeys(ConfigReader.getProperty(city));
     }
 
     @When("user enters a {string} in Ssn Code textbox")
     public void user_enters_a_code_in_ssn_code_textbox(String ssn_code) {
-        customerAdressCreatePage.ssnTextBox.sendKeys(ConfigReader.getProperty(ssn_code));
+        employeeCustomerPage.ssnTextBox.clear();
+        employeeCustomerPage.ssnTextBox.sendKeys(ConfigReader.getProperty(ssn_code));
     }
 
     @When("user creates {string}")
     public void user_creates(String date) {
-       customerAdressCreatePage.createDate.sendKeys(ConfigReader.getProperty(date));
+
+       employeeCustomerPage.createDate.sendKeys(ConfigReader.getProperty(date));
     }
 
     @When("user selects {string} from Country dropdown menu")
     public void user_selects_from_country_dropdown_menu(String country) {
-        Select select = new Select(customerAdressCreatePage.countryDropdown);
+        Select select = new Select(employeeCustomerPage.countryDropdown);
         select.selectByVisibleText(ConfigReader.getProperty(country));
     }
 
     @When("user selects {string} from User dropdown menu")
     public void user_selects_from_user_dropdown_menu(String user) {
-       // Select select = new Select(customerAdressCreatePage.userDropdown);
+
+       // Select select = new Select(employeeCustomerPage.userDropdown);
         //select.selectByVisibleText(ConfigReader.getProperty(user));
     }
 
     @When("user clicks on Save button")
     public void user_clicks_on_save_button() {
-        customerAdressCreatePage.saveButton.click();
+        employeeCustomerPage.saveButton.click();
 
     }
 
     @Then("user should see this message under Address textbox: {string}")
     public void user_should_see_this_message_under_address_textbox(String required_message) {
-        Assert.assertEquals(ConfigReader.getProperty(required_message), customerAdressCreatePage.requiredMessage.getText());
+        Assert.assertEquals(ConfigReader.getProperty(required_message), employeeCustomerPage.requiredMessage.getText());
     }
 
     @And("user enters an {string} in Address textbox")
     public void userEntersAnInAddressTextbox(String address) {
-        customerAdressCreatePage.addressTextBox.sendKeys(ConfigReader.getProperty(address));
+        employeeCustomerPage.addressTextBox.sendKeys(ConfigReader.getProperty(address));
     }
 
     @Given("user doesn't enter  anything in Citytextbox")
@@ -153,7 +169,7 @@ public class US_010_StepDefinitions {
 
     @Then("user should see this message under City textbox: {string}")
     public void user_should_see_this_message_under_city_textbox(String required_message) {
-        Assert.assertEquals(ConfigReader.getProperty(required_message), customerAdressCreatePage.requiredMessage.getText());
+        Assert.assertEquals(ConfigReader.getProperty(required_message), employeeCustomerPage.requiredMessage.getText());
     }
 
 
@@ -176,6 +192,6 @@ public class US_010_StepDefinitions {
     @Then("user shouldn't see created_message")
     public void userShouldnTSeeCreated_message() {
         ReusableMethods.waitFor(1);
-        Assert.assertFalse(customerAdressCreatePage.createdMessage.isDisplayed());
+        Assert.assertFalse(employeeCustomerPage.createdMessage.isDisplayed());
     }
 }

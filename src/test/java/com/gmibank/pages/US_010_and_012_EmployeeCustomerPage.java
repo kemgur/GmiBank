@@ -5,9 +5,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.gmibank.utilities.Driver;
 
-public class US_010_and_012_EpployeeCustomerPage {
 
-    public US_010_and_012_EpployeeCustomerPage(){
+import java.util.List;
+
+public class US_010_and_012_EmployeeCustomerPage {
+
+    public US_010_and_012_EmployeeCustomerPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
@@ -85,4 +88,46 @@ public class US_010_and_012_EpployeeCustomerPage {
     @FindBy(xpath = "//div[@class='Toastify__toast-body']")
     public WebElement createdMessage;
 
+    @FindBy(linkText = "2")
+    public WebElement page2;
+
+    @FindBy(linkText = "3")
+    public WebElement page3;
+
+    @FindBy(xpath = "//a[@class='btn btn-info btn-sm']")
+    public WebElement viewButton;
+
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement editViewButton;
+
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
+    public  WebElement editButton;
+
+    @FindBy(xpath = "//a[@class='btn btn-danger btn-sm']")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "//button[@class='btn btn-danger']")
+    public WebElement deleteConfirmButton;
+
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public  WebElement delete_message;
+
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public WebElement update_message;
+
+    @FindBy(xpath = "//tbody//tr[1]//td")
+    public List<WebElement> cells;
+
+    @FindBy(xpath = "//thead//th")
+    public List<WebElement> headers;
+
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> rows;
+
+    @FindBy(linkText = "»»")
+    public WebElement lastPage;
+
+    @FindBy(xpath = "//h5[@class='modal-title']")
+    public WebElement confirmPopUp;
 }
+

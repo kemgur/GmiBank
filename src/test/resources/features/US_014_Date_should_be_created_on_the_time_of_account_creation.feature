@@ -1,4 +1,5 @@
 Feature: Date_should_be_created_on_the_time_of_account_creation
+
   @second
   Scenario: TC_001_The_date_cannot_be_typed_earlier,_in_the_past,_at_the_time_of_creation_an_account
 
@@ -30,7 +31,4 @@ Feature: Date_should_be_created_on_the_time_of_account_creation
     And User clicks Create date button
     And User enters the date and the time
     Then You should see the date as month,day, year,hour and minute.
-
-
-
 

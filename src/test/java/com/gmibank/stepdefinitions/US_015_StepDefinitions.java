@@ -62,4 +62,5 @@ public class US_015_StepDefinitions {
     public void userClickViewTransactionButton() {
         myAccountsPage.viewTransaction.click();
     }
+
 }

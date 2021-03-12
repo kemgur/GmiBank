@@ -26,7 +26,7 @@ public class US_015_UserPage {
     @FindBy(xpath = "(//a[@class='page-link'])[9]")
     public WebElement lastPageButton;
 
-    @FindBy(xpath = "//a[@href='/admin/user-management/dt30/edit']")
+    @FindBy(xpath = "//a[@href='/admin/user-management/dteam30/edit']")
     public WebElement team30DemoEditButton;
 
     @FindBy(xpath = "//input[@name='activated']")
@@ -73,4 +73,34 @@ public class US_015_UserPage {
 
     @FindBy(xpath = "//*[text()='Demo Team30 Hesap2']")
     public WebElement secondAcc;
+
+    @FindBy(xpath = "(//a[@aria-haspopup])[2]")
+    public WebElement tus;
+
+    @FindBy(xpath = "//*[text()='Sign out']")
+    public WebElement cikis;
+
+    @FindBy(xpath = "(//a[@class='dropdown-item'])[1]")
+    public WebElement transferMoney;
+
+    @FindBy(xpath = "(//select[@name])[1]")
+    public WebElement fromDD;
+
+    @FindBy(xpath = "(//select[@name])[2]")
+    public WebElement toDD;
+
+    @FindBy(xpath = "//input[@name='balance']")
+    public WebElement balance;
+
+    @FindBy(xpath = "//input[@name='balancecent']")
+    public WebElement balanceCent;
+
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionTextbox;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement makeTransferButton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement transferConfirm;
 }
