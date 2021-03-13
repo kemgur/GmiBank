@@ -23,7 +23,6 @@ Feature: US_005 Giriş sayfasına geçersiz kimlik bilgileriyle erişilemez
 
 
   Scenario: TC_002 Invalid username valid password datalarla sign in yapilamamali
-
     Then Kullanici UsernameBoxa Invalid bir deger girer
     And Kullanici PasswordBoxa valid bir deger girer
     And Kullanici SignIn butonuna tiklar
