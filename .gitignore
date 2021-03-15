@@ -2,3 +2,7 @@ target
 .idea
 configuration.properties
 runners
+allCustomerSSN.txt
+pojos
+api_ders.feature
+WriteToTxt
