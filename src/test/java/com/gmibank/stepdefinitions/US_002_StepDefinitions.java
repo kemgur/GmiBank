@@ -133,9 +133,7 @@ public class US_002_StepDefinitions {
         Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.newPasswordConfirmationErrorMessage.getText());
     }
 
-<<<<<<< HEAD:src/test/java/stepdefinitions/US_002_StepDefinitions.java
 
-=======
     @Then("User provide invalid SSN {string} and click tab")
     public void userProvideInvalidSSNAndClickTab(String invalidSsn) {
         registerPage.ssnTextbox.sendKeys(ConfigReader.getProperty(invalidSsn) + Keys.TAB);
@@ -155,5 +153,5 @@ public class US_002_StepDefinitions {
     public void userShouldSeeTheEmailInvalidErrorMessage(String errorMessage) {
         Assert.assertEquals(ConfigReader.getProperty(errorMessage), registerPage.invalidEmailErrorMessage.getText());
     }
->>>>>>> main:src/test/java/com/gmibank/stepdefinitions/US_002_StepDefinitions.java
+
 }
