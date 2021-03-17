@@ -4,7 +4,7 @@ Feature: Validate_all_data_performing_database_testing_using_the_port_and
     Given user creates a connection with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126"
   Scenario Outline: All_users'_info_should_be_retrieved_by_database_and_validated
     Given user retrieves the info of user from database using "<query>" and "<columnName>"
-    And user validates users' info
+    And user validates users info
     Examples:
     |query|columnName|
     |Select * From jhi_user|email|

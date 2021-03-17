@@ -6,8 +6,8 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.US_001GmiBankHomePage;
 import pages.US_001GmiBankRegistrationPage;
-import utilities.ConfigReader;
-import utilities.Driver;
+import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.Driver;
 
 public class US_001_StepDefinitions {
 

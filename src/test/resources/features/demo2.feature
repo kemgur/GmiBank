@@ -1,24 +1,23 @@
-@demo
+@demo2
 Feature: ApiDemo2
-  Scenario:Reading Country, putting in order Id's, Creating Country
-    Given User on the api endpoint "https://www.gmibank.com/api/tp-countries"
+  Scenario: putting in order Id's, Reading, Creating, Updating and Deleting Country
+    Given User on the api endpoint "country_api"
     And Validation countries
-    And  create a country using to api end point "https://www.gmibank.com/api/tp-countries"
+    And create a country using to api end point "country_api"
+    And user updates a country using api end point "country_api"  "name" and its extension "id"
+    And user deletes a country using endpoint "country_api" and its extension "country_id"
 
-
-  Scenario Outline:  ulkeyi update etme
-    And  user updates a country using api end point "https://www.gmibank.com/api/tp-countries"  "<name>" and its extension "<id>"
-    Examples: Update country
-      |name|id|
-      |cennet |25589|
-  Scenario Outline: ulke silme
-    Given user deletes a country using endpoint "<endPoint>" and its extension "<id>"
-    Examples: Delete Country
-      |endPoint                                |id    |
-      |https://www.gmibank.com/api/tp-countries%7C/73028%7C
-  @pdf
-  Scenario Outline: pdf alma :)
-    Given demo pdf user creates a connection with db using "jdbc:postgresql://157.230.48.97:5432/gmibank_db" , "techprodb_user" and "Techpro_@126"
+  @demoJDBC
+  Scenario Outline: All users info should be retrieved by database and validated
+    Given demo pdf user creates a connection with db using "gmibank_jdbc" , "techpro_username" and "techpro_pw"
+    And user retrieves the info of user from database using "<query>" and "<columnName>"
+    Then user validates users info "jdbc_email"
+    Examples:
+      |query|columnName|
+      |Select * From jhi_user|email|
+  @DemoPdf
+  Scenario Outline: Generate Datas to Pdf
+    Given demo pdf user creates a connection with db using "gmibank_jdbc" , "techpro_username" and "techpro_pw"
     And demo pdf user provides the query "<query>"
     Examples: demo read the data
       |query|

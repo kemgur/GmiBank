@@ -1,5 +1,6 @@
 package com.gmibank.stepdefinitions;
 
+import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.DatabaseUtility;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
@@ -18,9 +19,9 @@ public class US_029_StepDefinitions {
         userEmailList = DatabaseUtility.getColumnData(query,userEmail);
         System.out.println(userEmailList);
     }
-    @Given("user validates users' info")
-    public void user_validates_users_info() {
-        Assert.assertTrue(userEmailList.contains("anonymous@localhost"));
+    @Given("user validates users info {string}")
+    public void user_validates_users_info(String email) {
+        Assert.assertTrue(userEmailList.contains(ConfigReader.getProperty(email)));
         System.out.println("Test passed");
     }
     @Given("user retrieves all countries' info from database using {string} and {string}")

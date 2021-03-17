@@ -1,6 +1,7 @@
 package com.gmibank.stepdefinitions;
 
-import com.gmibank.pojos.Countries;
+
+import com.gmibank.pojos.Country;
 import com.gmibank.utilities.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -27,7 +28,7 @@ public class US_025_StepDefinitions {
     @And("user {string} create a country {string} and state {string}")
     public void userCreateACountryAndState(String url, String name, String state) {
 
-        Countries countries = new Countries(name, null);
+        Country countries = new Country(name, null);
 
         String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWFtMzBtYW5hZ2VyIiwiYXV0aCI6IlJPTEVfTUFOQUdFUiIsImV4cCI6MTYxNTk3MzkzN30.SsH2_hDMa7W9DTg0q5sH2lcd1vnxUxwmm6tiWkPeGOR0amelxs1ANkZwtbDdDzgaUW3ciFDbKsiYdbpp8C06Vg";
 
@@ -50,7 +51,7 @@ public class US_025_StepDefinitions {
                 extract().
                 response();
         response.prettyPrint();
-       Countries actualCountryData = response.as(Countries.class);
+       Country actualCountryData = response.as(Country.class);
         SoftAssert softAssert = new SoftAssert();
 
         System.out.println(actualCountryData.getName());
