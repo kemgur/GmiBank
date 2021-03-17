@@ -8,7 +8,7 @@ import com.gmibank.pages.US003_StongPasswordPage;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.Driver;
 
-public class US003_StepDefinitions {
+public class US_003_StepDefinitions {
 
     US003_StongPasswordPage strongPassword = new US003_StongPasswordPage();
 
