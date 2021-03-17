@@ -1,5 +1,7 @@
 package com.gmibank.utilities;
 
+import com.gmibank.pojos.Country;
+import com.gmibank.pojos.Customer;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -132,7 +134,7 @@ public class PDFGenerator {
                 table.addCell(list.get(i).getFirstName());
                 table.addCell(list.get(i).getSsn());
                 table.addCell(list.get(i).getCountry().getName());
-                table.addCell(list.get(i).getState());
+                //table.addCell(list.get(i).getState());
                 table.addCell(list.get(i).getZipCode());
             }
             document.add(table);
@@ -152,7 +154,7 @@ public class PDFGenerator {
         country.setName("USA");
         Customer customer = new Customer();
         customer.setFirstName("Emine");
-        customer.setState("MA");
+        //customer.setState("MA");
         customer.setSsn("202020202");
         customer.setZipCode("02120");
         customer.setCountry(country);

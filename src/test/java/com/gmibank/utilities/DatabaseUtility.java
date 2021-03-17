@@ -243,7 +243,7 @@ public class DatabaseUtility {
             customer.setFirstName(list.get(i).get(1).toString());
             customer.setSsn(list.get(i).get(10).toString());
             country.setName(list.get(i).get(8).toString());
-            customer.setState(list.get(i).get(14).toString());
+            //customer.setState(list.get(i).get(14).toString());
             customer.setZipCode(list.get(i).get(15).toString());
             customer.setCountry(country);
             listOfCustomers.add(customer);

@@ -1,7 +1,9 @@
 package com.gmibank.stepdefinitions;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmibank.jsonmodels.CountryJson;
+import com.gmibank.pojos.Country;
+import com.gmibank.pojos.Customer;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.DatabaseUtility;
 import com.gmibank.utilities.PDFGenerator;
@@ -14,10 +16,13 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.gmibank.utilities.DatabaseUtility.getQueryResultList;
 
 public class Demo2StepDefinitions {
     Response response;
@@ -30,13 +35,13 @@ public class Demo2StepDefinitions {
     public void api_end_point(String url) {
         response = RestAssured.given().headers(
                 "Authorization",
-                "Bearer " + ConfigurationReader.getProperty("tokenf"),
+                "Bearer " + ConfigReader.getProperty("token"),
                 "Content-Type",
                 ContentType.JSON,
                 "Accept",
                 ContentType.JSON)
                 .when()
-                .get(url)
+                .get(ConfigReader.getProperty(url))
                 .then()
                 .contentType(ContentType.JSON)
                 .statusCode(200)
@@ -48,7 +53,7 @@ public class Demo2StepDefinitions {
     List<Integer> idlistesi = new ArrayList<>();
 
     @Given("Validation countries")
-    public void validate_edelim() throws JsonProcessingException {
+    public void validate_edelim() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         country = objectMapper.readValue(response.asString(), Country[].class);
         System.out.println("ilk name okunuyor dikkat ");
@@ -74,14 +79,14 @@ public class Demo2StepDefinitions {
     public void create_a_country_using_to_api_end_point(String url) {
         response = RestAssured.given().headers(
                 "Authorization",
-                "Bearer " + ConfigReader.getProperty("tokenf"),
+                "Bearer " + ConfigReader.getProperty("token"),
                 "Content-Type",
                 ContentType.JSON,
                 "Accept",
                 ContentType.JSON)
                 .when()
                 .body(CountryJson.createCountry)
-                .post(url)
+                .post(ConfigReader.getProperty(url))
                 .then()
                 .contentType(ContentType.JSON)
                 .extract()
@@ -91,8 +96,8 @@ public class Demo2StepDefinitions {
 
     // Validate Created  Country and  Database
     @Given("creates a connection with db using {string} , {string} and {string}")
-    public void creates_a_connection_with_db_using_and(String url, String user, String password) {
-        DatabaseUtility.createConnection(url, user, password);
+    public void creates_a_connection_with_db_using_and(String url, String username, String password) {
+        DatabaseUtility.createConnection(ConfigReader.getProperty(url), ConfigReader.getProperty(username), ConfigReader.getProperty(password));
     }
 
     @Given("user provides the query {string} and {string}")
@@ -121,20 +126,20 @@ public class Demo2StepDefinitions {
 
     @Given("user updates a country using api end point {string}  {string} and its extension {string}")
     public void user_updates_a_country_using_api_end_point_and_its_extension(String url, String name, String id) {
-        Map<String, Object> putName = new HashMap<>();
-        putName.put("id", id);
-        putName.put("name", name);
-        putName.put("states", null);
+        Map<String, Object> updateInfos = new HashMap<>();
+        updateInfos.put("id", "22320");
+        updateInfos.put("name", "Team30's Country");
+        updateInfos.put("states", null);
         response = RestAssured.given().headers(
                 "Authorization",
-                "Bearer " + ConfigReader.getProperty("tokenf"),
+                "Bearer " + ConfigReader.getProperty("token"),
                 "Content-Type",
                 ContentType.JSON,
                 "Accept",
                 ContentType.JSON)
                 .when()
-                .body(putName)
-                .put(url)
+                .body(updateInfos)
+                .put(ConfigReader.getProperty(url))
                 .then()
                 .contentType(ContentType.JSON)
                 .statusCode(200)
@@ -147,42 +152,42 @@ public class Demo2StepDefinitions {
     public void user_deletes_a_country_using_endpoint_and_its_extension(String url, String id) {
         response = RestAssured.given().headers(
                 "Authorization",
-                "Bearer " + ConfigReader.getProperty("tokenf"),
+                "Bearer " + ConfigReader.getProperty("token"),
                 "Content-Type",
                 ContentType.JSON,
                 "Accept",
                 ContentType.JSON)
                 .when()
-                .delete(url + id)
+                .delete(ConfigReader.getProperty(url) + id)
                 .then()
                 .extract()
                 .response();
 
         responseAll = RestAssured.given().headers(
                 "Authorization",
-                "Bearer " + ConfigReader.getProperty("tokenf"),
+                "Bearer " + ConfigReader.getProperty("token"),
                 "Content-Type",
                 ContentType.JSON,
                 "Accept",
                 ContentType.JSON)
                 .when()
-                .get(url)
+                .get(ConfigReader.getProperty(url))
                 .then()
                 .contentType(ContentType.JSON)
                 .statusCode(200)
                 .extract()
                 .response();
         JsonPath jsonPath = responseAll.jsonPath();
-        String kalanidlerbizimdir = jsonPath.getString("id");
+        String remainingIds = jsonPath.getString("id");
         System.out.println("***********************************************");
-        Assert.assertFalse("silinmedi haberin olsun ", kalanidlerbizimdir.contains(id));
+        Assert.assertFalse("silinmedi haberin olsun ", remainingIds.contains(id));
         System.out.println("-------------------------");
         System.out.println("islem tamam ");
     }
 
     @Given("demo pdf user creates a connection with db using {string} , {string} and {string}")
-    public void demo_pdf_user_creates_a_connection_with_db_using_and(String url, String user, String password) {
-        DatabaseUtility.createConnection(url, user, password);
+    public void demo_pdf_user_creates_a_connection_with_db_using_and(String url, String username, String password) {
+        DatabaseUtility.createConnection(ConfigReader.getProperty(url), ConfigReader.getProperty(username), ConfigReader.getProperty(password));
     }
 
     @Given("demo pdf user provides the query {string}")
@@ -198,7 +203,7 @@ public class Demo2StepDefinitions {
             customer.setSsn(list.get(i).get(10).toString());
             Customers.add(customer);
         }
-        PDFGenerator.pdfteam32("                    *** Team 30 THE BUG FINDERS DEMO PRESENTATION *** \n                                                      === ilk datalar  ===", Customers, "     sunumDosyasi.pdf");
+        PDFGenerator.pdfGeneratorRowsAndCellsWithListFirstToFive("                    *** Team 30 THE BUG FINDERS DEMO PRESENTATION *** \n                                                      === ilk datalar  ===", Customers, "     sunumDosyasi.pdf");
 
     }
 }
