@@ -164,6 +164,7 @@ public class Demo2StepDefinitions {
                 .extract()
                 .response();
 
+        response.prettyPrint();
         responseAll = RestAssured.given().headers(
                 "Authorization",
                 "Bearer " + ConfigReader.getProperty("token"),
