@@ -8,7 +8,7 @@ import com.gmibank.pages.US_016TransferMoneyPage;
 import com.gmibank.pages.US_019AdminHesapPage;
 import com.gmibank.utilities.ConfigReader;
 
-public class US_019StepDefinitions {
+public class US_019_StepDefinitions {
     US_005LoginPage loginPage=new US_005LoginPage();
     US_019AdminHesapPage adminHesapPage=new US_019AdminHesapPage();
     @Then("Kullanici usernameBoxa manager data girer")
