@@ -7,6 +7,7 @@ import com.gmibank.pojos.Customer;
 import com.gmibank.utilities.ConfigReader;
 import com.gmibank.utilities.DatabaseUtility;
 import com.gmibank.utilities.PDFGenerator;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
 import io.cucumber.java.en.Then;
@@ -31,7 +32,7 @@ public class Demo2StepDefinitions {
     Country[] country;
     List<Country> dbCountry = new ArrayList<>();
 
-    @Given("User on the api endpoint {string}")
+    @Given("User on the api endpoint {string} and read the countries")
     public void api_end_point(String url) {
         response = RestAssured.given().headers(
                 "Authorization",
@@ -52,7 +53,7 @@ public class Demo2StepDefinitions {
 
     List<Integer> idlistesi = new ArrayList<>();
 
-    @Given("Validation countries")
+    @Given("Validate countries read")
     public void validate_edelim() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         country = objectMapper.readValue(response.asString(), Country[].class);
@@ -185,12 +186,12 @@ public class Demo2StepDefinitions {
         System.out.println("islem tamam ");
     }
 
-    @Given("demo pdf user creates a connection with db using {string} , {string} and {string}")
+    @Given("User creates a connection with db using {string} , {string} and {string}")
     public void demo_pdf_user_creates_a_connection_with_db_using_and(String url, String username, String password) {
         DatabaseUtility.createConnection(ConfigReader.getProperty(url), ConfigReader.getProperty(username), ConfigReader.getProperty(password));
     }
 
-    @Given("demo pdf user provides the query {string}")
+    @Given("User provides the query {string} and generate it to PDF")
     public void demo_pdf_user_provides_the_query(String query) {
         List<Customer> Customers = new ArrayList<>();
         List<List<Object>> list = getQueryResultList(query);
@@ -203,7 +204,20 @@ public class Demo2StepDefinitions {
             customer.setSsn(list.get(i).get(10).toString());
             Customers.add(customer);
         }
-        PDFGenerator.pdfGeneratorRowsAndCellsWithListFirstToFive("                    *** Team 30 THE BUG FINDERS DEMO PRESENTATION *** \n                                                      === ilk datalar  ===", Customers, "     sunumDosyasi.pdf");
+        PDFGenerator.pdfGeneratorRowsAndCellsWithListFirstToFive("           Team 30 THE BUG FINDERS DEMO PRESENTATION\n                                                      === First datas  ===", Customers, "team30.pdf");
 
+    }
+
+
+    @And("Validate country create")
+    public void validateCountryCreate() {
+    }
+
+    @And("Validate country update")
+    public void validateCountryUpdate() {
+    }
+
+    @And("Validate country delete")
+    public void validateCountryDelete() {
     }
 }
