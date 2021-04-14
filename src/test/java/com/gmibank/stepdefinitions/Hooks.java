@@ -9,7 +9,7 @@ import com.gmibank.utilities.Driver;
 
 public class Hooks {
 
-    @Before // her scenario'dan once calisir,junitteki before,TestNG'deki beforeMethod gibi
+    /*@Before // her scenario'dan once calisir,junitteki before,TestNG'deki beforeMethod gibi
     public void setup(){
 
     }
@@ -24,5 +24,5 @@ public class Hooks {
         Driver.closeDriver();
     }
 
-
+*/
 }

@@ -1,7 +1,7 @@
 package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_011_DateCreatedOnTheTimePage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -81,7 +81,7 @@ public class US_011_StepDefinitions {
 
     @Then("update {string} from phone number blank")
     public void update_from_phone_number_blank(String phone) {
-        updateDate.updatePhoneNumber.sendKeys(ConfigReader.getProperty(phone));
+        updateDate.updatePhoneNumber.sendKeys(ConfigurationReader.getProperty(phone));
         ReusableMethods.waitFor(2);
     }
 

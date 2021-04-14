@@ -10,6 +10,7 @@
       Then Admin activates the account of the user who has made the application
       And Logging out from the admin account
       Then Login to the employee account "employee_username" "employee_pw"
+      And Employee creates 2 bank accounts
       And Employee integrates bank account to registered user
       Then Logging out from the employee account
       And User logs into his-her own account

@@ -1,7 +1,7 @@
 package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_004SignInPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
@@ -18,7 +18,7 @@ public class US_004_StepDefinitions {
 
     @Given("User on the home page {string}")
     public void userOnTheHomePage(String url) {
-        Driver.getDriver().get(ConfigReader.getProperty(url));
+        Driver.getDriver().get(ConfigurationReader.getProperty(url));
     }
 
     @Then("User clicks on login dropdown button")
@@ -39,7 +39,7 @@ public class US_004_StepDefinitions {
 
     @Then("User enter valid {string}")
     public void userEnterValid(String username) {
-        us_004SignInPage.usernameTextbox.sendKeys(ConfigReader.getProperty(username)+ Keys.TAB);
+        us_004SignInPage.usernameTextbox.sendKeys(ConfigurationReader.getProperty(username)+ Keys.TAB);
 
     }
 
@@ -47,7 +47,7 @@ public class US_004_StepDefinitions {
     public void userClicksOnPasswordTextbox() throws InterruptedException {
         us_004SignInPage.passwordTextbox.click();
         Thread.sleep(5000);
-        us_004SignInPage.passwordTextbox.sendKeys(ConfigReader.getProperty("password"));
+        us_004SignInPage.passwordTextbox.sendKeys(ConfigurationReader.getProperty("password"));
 
 
     }
@@ -55,7 +55,7 @@ public class US_004_StepDefinitions {
     @Then("User clicks on Sign in button")
     public void userClicksOnSignInButton() {
         us_004SignInPage.usernameTextbox.clear();
-        us_004SignInPage.usernameTextbox.sendKeys(ConfigReader.getProperty("username"));
+        us_004SignInPage.usernameTextbox.sendKeys(ConfigurationReader.getProperty("username"));
         us_004SignInPage.SignInButton.click();
     }
 
@@ -69,7 +69,7 @@ public class US_004_StepDefinitions {
     public void userShouldBeAbleToSeeTheAdminAdminText() {
         ReusableMethods.waitFor(3);
 
-        Assert.assertEquals(ConfigReader.getProperty("display"), us_004SignInPage.AdminAdminButton.getText());
+        Assert.assertEquals(ConfigurationReader.getProperty("display"), us_004SignInPage.AdminAdminButton.getText());
 
 
 

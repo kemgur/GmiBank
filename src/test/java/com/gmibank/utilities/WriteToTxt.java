@@ -2,14 +2,16 @@ package com.gmibank.utilities;
 
 
 
-import com.gmibank.pojos.Applicants;
+import com.gmibank.pojos.*;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
 
 public class WriteToTxt {
-    /*
-    public static void saveDataInFileWithSSN(String fileName, Customer[] customers) {
+
+    public static void saveDataInFileWithSSN(String fileName, Customer3[] customers) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < customers.length; i++)
@@ -17,7 +19,7 @@ public class WriteToTxt {
             writer.close();
         } catch (Exception e) {
         }
-    }*/
+    }
 
     public static void saveDataInFileWithSSN(String fileName, Applicants[] applicants) {
         try {
@@ -28,9 +30,9 @@ public class WriteToTxt {
         } catch (Exception e) {
         }
     }
-}
-/*
-    public static void saveDataInFileAllCustomersInfo(String fileName, Customer[] customer) {
+
+
+    public static void saveDataInFileAllCustomersInfo(String fileName, Customer5[] customer) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < customer.length; i++) {
@@ -39,7 +41,7 @@ public class WriteToTxt {
                     writer.append(customer[i].getUser().getFirstName() + " , " + customer[i].getUser().getLastName() + "\n");
                 }
                 if (customer[i].getCountry() != null) {
-                    writer.append(customer[i].getCountry().getName() + " , " + customer[i].getCountry().getStates() + "\n");
+                    writer.append(customer[i].getCountry().getName() + " , " + customer[i].getCountry().getState() + "\n");
                 }
             }
             writer.close();
@@ -47,7 +49,7 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveDataInFileSsn(String fileName, Customer customer) {
+    public static void saveDataInFileSsn(String fileName, Customer5 customer) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             writer.append(customer.getSsn());
@@ -95,7 +97,7 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveDataInFile2(String fileName, Customer[] customers) {
+    public static void saveDataInFile2(String fileName, Customer5[] customers) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < customers.length; i++)
@@ -108,7 +110,7 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveDataInFileWithAllCustomerInfo2(String fileName, Customer[] customers) {
+    public static void saveDataInFileWithAllCustomerInfo2(String fileName, Customer5[] customers) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
 
@@ -142,8 +144,26 @@ public class WriteToTxt {
         }
     }
 
-    //hatice method ekleme
-    public static void saveDataInFileWithCountrId(String fileName, Country[] countries) {
+    public static void saveAllCustomers(String fileName, Customer5[] customers){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            for(int i = 0; i<customers.length; i++){
+                writer.append(customers[i].getSsn() + ", " + customers[i].getFirstName() + ", ");
+                if(customers[i].getCountry() != null){
+                    writer.append(customers[i].getCountry().getName() + ", " + customers[i].getCountry().getId() + ",\n");
+                }else{
+                    writer.append("\n");
+                }
+            }
+            writer.close();
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
+    public static void saveDataInFileWithCountrId(String fileName, Country3[] countries) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
             for (int i = 0; i < countries.length; i++)
@@ -172,4 +192,4 @@ public class WriteToTxt {
     }
 
 }
-*/
+

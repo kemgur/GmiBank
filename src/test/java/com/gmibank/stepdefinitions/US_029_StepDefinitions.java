@@ -1,10 +1,10 @@
 package com.gmibank.stepdefinitions;
 
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.DatabaseUtility;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
-import java.util.ArrayList;
+
 import java.util.List;
 public class US_029_StepDefinitions {
     List<Object> userEmailList;
@@ -17,7 +17,7 @@ public class US_029_StepDefinitions {
     }
     @Given("User validates users info {string}")
     public void user_validates_users_info(String email) {
-        Assert.assertTrue(userEmailList.contains(ConfigReader.getProperty(email)));
+        Assert.assertTrue(userEmailList.contains(ConfigurationReader.getProperty(email)));
         System.out.println("Test passed");
     }
     @Given("User retrieves all countries' info from database using {string} and {string}")

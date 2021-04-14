@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import com.gmibank.pages.US003_StongPasswordPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 
 public class US_003_StepDefinitions {
@@ -14,7 +14,7 @@ public class US_003_StepDefinitions {
 
     @Given("Goto {string}")
     public void go_to(String string) {
-        Driver.getDriver().get(ConfigReader.getProperty("gmi_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("gmi_url"));
 
     }
 
@@ -36,7 +36,7 @@ public class US_003_StepDefinitions {
 
     @Then("Enter a password in lower case in the new password")
     public void enter_a_password_in_lower_case_in_the_new_password() {
-        strongPassword.firstPassword.sendKeys(ConfigReader.getProperty("lower_Case"));
+        strongPassword.firstPassword.sendKeys(ConfigurationReader.getProperty("lower_Case"));
     }
 
     @Then("see change in Password strength")
@@ -48,7 +48,7 @@ public class US_003_StepDefinitions {
 
     @And("Enter a password in upper case in the new password")
     public void enterAPasswordInUpperCaseInTheNewPassword() {
-        strongPassword.firstPassword.sendKeys(ConfigReader.getProperty("a_Upper_Case"));
+        strongPassword.firstPassword.sendKeys(ConfigurationReader.getProperty("a_Upper_Case"));
     }
 
     @And("see change in Password strength \\(orange)")
@@ -59,7 +59,7 @@ public class US_003_StepDefinitions {
 
     @And("Enter a password in digit in the new password")
     public void enterAPasswordInDigitInTheNewPassword(){
-        strongPassword.firstPassword.sendKeys(ConfigReader.getProperty("a_Digit"));
+        strongPassword.firstPassword.sendKeys(ConfigurationReader.getProperty("a_Digit"));
     }
 
     @And("see change in Password strength \\(green)")
@@ -70,7 +70,7 @@ public class US_003_StepDefinitions {
 
     @And("enter a special character as password in new password")
     public void enterASpecialCharacterAsPasswordInNewPassword() {
-        strongPassword.firstPassword.sendKeys(ConfigReader.getProperty("spacial_Character"));
+        strongPassword.firstPassword.sendKeys(ConfigurationReader.getProperty("spacial_Character"));
     }
 
     @And("see change in Password strength \\(darkgreen)")
@@ -81,7 +81,7 @@ public class US_003_StepDefinitions {
 
     @And("enter the password in seven characters for all desired properties")
     public void enterThePasswordInSevenCharactersForAllDesiredProperties() {
-        strongPassword.firstPassword.sendKeys(ConfigReader.getProperty("sevenCharacter"));
+        strongPassword.firstPassword.sendKeys(ConfigurationReader.getProperty("sevenCharacter"));
     }
 
     @And("see change in Password strength \\(againdarkgreen)")

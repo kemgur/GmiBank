@@ -4,20 +4,19 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import com.gmibank.pages.US_005LoginPage;
-import com.gmibank.pages.US_016TransferMoneyPage;
 import com.gmibank.pages.US_019AdminHesapPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 
 public class US_019_StepDefinitions {
     US_005LoginPage loginPage=new US_005LoginPage();
     US_019AdminHesapPage adminHesapPage=new US_019AdminHesapPage();
     @Then("Kullanici usernameBoxa manager data girer")
     public void kullanici_username_boxa_manager_data_girer() {
-        loginPage.userBox.sendKeys(ConfigReader.getProperty("manager_username"));
+        loginPage.userBox.sendKeys(ConfigurationReader.getProperty("manager_username"));
     }
     @Then("Kullanici passwordBoxa manager data girer")
     public void kullanici_password_boxa_manager_data_girer() {
-        loginPage.passBox.sendKeys(ConfigReader.getProperty("manager_pw"));
+        loginPage.passBox.sendKeys(ConfigurationReader.getProperty("manager_pw"));
     }
     @Then("Kullanici ManageAccounts a tiklar")
     public void kullanici_manage_accounts_a_tiklar() {
@@ -29,11 +28,11 @@ public class US_019_StepDefinitions {
     }
     @And("Kullanici Description kismina bir hesap aciklamasi girer")
     public void kullaniciDescriptionKisminaBirHesapAciklamasiGirer() {
-        adminHesapPage.descrip.sendKeys(ConfigReader.getProperty("deciripton_aciklama"));
+        adminHesapPage.descrip.sendKeys(ConfigurationReader.getProperty("deciripton_aciklama"));
     }
     @And("Kullanici balance boxa bir {string} girer")
     public void kullaniciBalanceBoxaBirGirer(String bakiye) {
-        adminHesapPage.balancebox.sendKeys(ConfigReader.getProperty(bakiye));
+        adminHesapPage.balancebox.sendKeys(ConfigurationReader.getProperty(bakiye));
     }
     @And("Kullanici Account Type drobboxdan CHECKIN hesap turunu secer")
     public void kullaniciAccountTypeDrobboxdanCHECKINHesapTurunuSecer() {

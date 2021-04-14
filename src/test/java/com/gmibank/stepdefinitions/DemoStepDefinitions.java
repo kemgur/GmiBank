@@ -9,7 +9,7 @@ import com.gmibank.pages.US_002GmiHomePage;
 import com.gmibank.pages.US_002GmiRegisterPage;
 import com.gmibank.pages.US_015_LoginPage;
 import com.gmibank.pages.US_015_UserPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -23,23 +23,23 @@ public class DemoStepDefinitions {
     @Given("User applies for registration")
     public void user_applies_for_registration() {
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.ssnTextbox, ConfigReader.getProperty("demo_ssn"), 5);
+        Driver.waitAndSendKeys(registerPage.ssnTextbox, ConfigurationReader.getProperty("demo_ssn"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.firstNameTextbox, ConfigReader.getProperty("demo_firstname"), 5);
+        Driver.waitAndSendKeys(registerPage.firstNameTextbox, ConfigurationReader.getProperty("demo_firstname"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.lastNameTextbox, ConfigReader.getProperty("demo_lastname"), 5);
+        Driver.waitAndSendKeys(registerPage.lastNameTextbox, ConfigurationReader.getProperty("demo_lastname"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.addressTextbox, ConfigReader.getProperty("demo_address"), 5);
+        Driver.waitAndSendKeys(registerPage.addressTextbox, ConfigurationReader.getProperty("demo_address"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.mobilePhoneTextBox, ConfigReader.getProperty("demo_mobile"), 5);
+        Driver.waitAndSendKeys(registerPage.mobilePhoneTextBox, ConfigurationReader.getProperty("demo_mobile"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.usernameTextbox, ConfigReader.getProperty("demo_username"), 5);
+        Driver.waitAndSendKeys(registerPage.usernameTextbox, ConfigurationReader.getProperty("demo_username"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.emailTextbox, ConfigReader.getProperty("demo_email"), 5);
+        Driver.waitAndSendKeys(registerPage.emailTextbox, ConfigurationReader.getProperty("demo_email"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.newPasswordTextbox, ConfigReader.getProperty("demo_password"), 5);
+        Driver.waitAndSendKeys(registerPage.newPasswordTextbox, ConfigurationReader.getProperty("demo_password"), 5);
         Driver.wait(1);
-        Driver.waitAndSendKeys(registerPage.newPasswordConfirmationTextbox, ConfigReader.getProperty("demo_password"), 5);
+        Driver.waitAndSendKeys(registerPage.newPasswordConfirmationTextbox, ConfigurationReader.getProperty("demo_password"), 5);
         Driver.wait(1);
         Driver.waitAndClick(registerPage.signInButton, 5);
 
@@ -49,9 +49,9 @@ public class DemoStepDefinitions {
     @Then("Login to admin account {string} {string}")
     public void login_to_admin_account(String username, String password) {
         Driver.wait(2);
-        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigReader.getProperty(username), 5);
+        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigurationReader.getProperty(username), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigReader.getProperty(password), 5);
+        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigurationReader.getProperty(password), 5);
         Driver.wait(2);
         Driver.waitAndClick(loginPage.signInButton, 5);
 
@@ -95,9 +95,9 @@ public class DemoStepDefinitions {
         Driver.wait(2);
 
 
-        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigReader.getProperty(username), 5);
+        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigurationReader.getProperty(username), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigReader.getProperty(password), 5);
+        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigurationReader.getProperty(password), 5);
         Driver.wait(2);
 
         Driver.waitAndClick(loginPage.signInButton, 5);
@@ -114,17 +114,17 @@ public class DemoStepDefinitions {
         Driver.waitAndClick(userPage.createNewCustomer, 5);
         Driver.wait(2);
 
-        Driver.waitAndSendKeys(userPage.searchSsn, ConfigReader.getProperty("demo_ssn"), 5);
+        Driver.waitAndSendKeys(userPage.searchSsn, ConfigurationReader.getProperty("demo_ssn"), 5);
         Driver.wait(2);
         userPage.searchButton.click();
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.middle, ConfigReader.getProperty("demo_middle"), 5);
+        Driver.waitAndSendKeys(userPage.middle, ConfigurationReader.getProperty("demo_middle"), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.phoneNumber, ConfigReader.getProperty("demo_mobile"), 5);
+        Driver.waitAndSendKeys(userPage.phoneNumber, ConfigurationReader.getProperty("demo_mobile"), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.zipCode, ConfigReader.getProperty("demo_zip"), 5);
+        Driver.waitAndSendKeys(userPage.zipCode, ConfigurationReader.getProperty("demo_zip"), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.city, ConfigReader.getProperty("demo_city"), 5);
+        Driver.waitAndSendKeys(userPage.city, ConfigurationReader.getProperty("demo_city"), 5);
         Driver.wait(2);
 
         actions.
@@ -151,9 +151,9 @@ public class DemoStepDefinitions {
     public void user_logs_into_his_her_own_account() {
         Driver.waitAndClick(userPage.signInAgain, 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigReader.getProperty("demo_username"), 5);
+        Driver.waitAndSendKeys(loginPage.usernameTextbox, ConfigurationReader.getProperty("demo_username"), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigReader.getProperty("demo_password"), 5);
+        Driver.waitAndSendKeys(loginPage.passwordTextbox, ConfigurationReader.getProperty("demo_password"), 5);
         Driver.wait(2);
         Driver.waitAndClick(loginPage.signInButton, 5);
         Driver.wait(2);
@@ -172,13 +172,13 @@ public class DemoStepDefinitions {
         to.selectByIndex(1);
         Driver.wait(2);
 
-        Driver.waitAndSendKeys(userPage.balance, ConfigReader.getProperty("demo_balance"), 5);
+        Driver.waitAndSendKeys(userPage.balance, ConfigurationReader.getProperty("demo_balance"), 5);
         Driver.wait(2);
         userPage.balanceCent.clear();
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.balanceCent, ConfigReader.getProperty("demo_balance_cent"), 5);
+        Driver.waitAndSendKeys(userPage.balanceCent, ConfigurationReader.getProperty("demo_balance_cent"), 5);
         Driver.wait(2);
-        Driver.waitAndSendKeys(userPage.descriptionTextbox, ConfigReader.getProperty("demo_description"), 5);
+        Driver.waitAndSendKeys(userPage.descriptionTextbox, ConfigurationReader.getProperty("demo_description"), 5);
         Driver.wait(2);
 
         Driver.waitAndClick(userPage.makeTransferButton, 5);

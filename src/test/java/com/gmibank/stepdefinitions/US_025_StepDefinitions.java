@@ -1,12 +1,10 @@
 package com.gmibank.stepdefinitions;
 
 
-import com.gmibank.pojos.Country;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.pojos.Country2;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.it.Ma;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.asserts.SoftAssert;
@@ -28,7 +26,7 @@ public class US_025_StepDefinitions {
     @And("user {string} create a country {string} and state {string}")
     public void userCreateACountryAndState(String url, String name, String state) {
 
-        Country countries = new Country(name, null);
+        Country2 countries = new Country2(name, null);
 
         String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWFtMzBtYW5hZ2VyIiwiYXV0aCI6IlJPTEVfTUFOQUdFUiIsImV4cCI6MTYxNTk3MzkzN30.SsH2_hDMa7W9DTg0q5sH2lcd1vnxUxwmm6tiWkPeGOR0amelxs1ANkZwtbDdDzgaUW3ciFDbKsiYdbpp8C06Vg";
 
@@ -51,12 +49,12 @@ public class US_025_StepDefinitions {
                 extract().
                 response();
         response.prettyPrint();
-       Country actualCountryData = response.as(Country.class);
+       Country2 actualCountry2Data = response.as(Country2.class);
         SoftAssert softAssert = new SoftAssert();
 
-        System.out.println(actualCountryData.getName());
+        System.out.println(actualCountry2Data.getName());
         System.out.println(countries.getName());
-        softAssert.assertEquals(actualCountryData.getName(), countries.getName());
+        softAssert.assertEquals(actualCountry2Data.getName(), countries.getName());
 
         softAssert.assertAll();
 

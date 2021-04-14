@@ -32,10 +32,10 @@ public class Driver {
 
     static private WebDriver driver;
 
-    static public WebDriver getDriver() {
+    public static WebDriver getDriver() {
 
         if (driver == null) {
-            switch (ConfigReader.getProperty("browser")) {
+            switch (ConfigurationReader.getProperty("browser")) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
@@ -314,8 +314,9 @@ public class Driver {
     }
 
     public static void waitAndClick(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 5);
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+
         element.click();
     }
     /**

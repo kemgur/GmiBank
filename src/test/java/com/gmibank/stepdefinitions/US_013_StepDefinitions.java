@@ -1,7 +1,7 @@
 package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US013_NewAccountPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -17,7 +17,7 @@ public class US_013_StepDefinitions {
 
     @Given("go to {string}")
     public void goTo(String arg0) {
-        Driver.getDriver().get(ConfigReader.getProperty("gmi_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("gmi_url"));
     }
 
     @Then("Click the login button from the loginpage")
@@ -28,8 +28,8 @@ public class US_013_StepDefinitions {
 
     @Then("enter a valid username and password")
     public void enter_a_valid_username_and_password() {
-        newAccountPage.userNameTextBox.sendKeys(ConfigReader.getProperty("employee_login"));
-        newAccountPage.passwordTextBox.sendKeys(ConfigReader.getProperty("employee_pw"));
+        newAccountPage.userNameTextBox.sendKeys(ConfigurationReader.getProperty("employee_login"));
+        newAccountPage.passwordTextBox.sendKeys(ConfigurationReader.getProperty("employee_pw"));
     }
 
     @Then("Click the Sign in button")
@@ -56,7 +56,7 @@ public class US_013_StepDefinitions {
     @Given("a data must be entered in the description field")
     public void aDataMustBeEnteredInTheDescriptionField() throws InterruptedException {
 
-        newAccountPage.descriptionTextBox.sendKeys(ConfigReader.getProperty("description_text"));
+        newAccountPage.descriptionTextBox.sendKeys(ConfigurationReader.getProperty("description_text"));
         Thread.sleep(3000);
 
     }
@@ -65,7 +65,7 @@ public class US_013_StepDefinitions {
     @Given("Money in dollars must be entered in the balance field")
     public void money_in_dollars_must_be_entered_in_the_balance_field() throws InterruptedException {
 
-        newAccountPage.balanceTextBox.sendKeys(ConfigReader.getProperty("balance"));
+        newAccountPage.balanceTextBox.sendKeys(ConfigurationReader.getProperty("balance"));
         Thread.sleep(3000);
     }
 
@@ -99,8 +99,8 @@ public class US_013_StepDefinitions {
 
     @Then("Customer should be able to save when customer presses save button")
     public void customer_should_be_able_to_save_when_customer_presses_save_button() throws InterruptedException {
-        newAccountPage.descriptionTextBox.sendKeys(ConfigReader.getProperty("description_text"));
-        newAccountPage.balanceTextBox.sendKeys(ConfigReader.getProperty("balance"));
+        newAccountPage.descriptionTextBox.sendKeys(ConfigurationReader.getProperty("description_text"));
+        newAccountPage.balanceTextBox.sendKeys(ConfigurationReader.getProperty("balance"));
         WebElement dropDown = newAccountPage.accountTypeDropDown;
         Select select = new Select(dropDown);
         select.selectByValue("INVESTING");

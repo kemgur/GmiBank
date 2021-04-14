@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import com.gmibank.pages.US_005LoginPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 
@@ -14,7 +14,7 @@ public class US_005_StepDefinitions {
 
     @Given("Kullanici GmiBank adresine gider")
     public void kullanici_gmi_bank_adresine_gider() {
-        Driver.getDriver().get(ConfigReader.getProperty("gmibank_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("gmibank_url"));
 
     }
 
@@ -32,13 +32,13 @@ public class US_005_StepDefinitions {
 
     @Then("Kullanici UsernameBoxa valid bir deger girer")
     public void kullanici_username_boxa_valid_bir_deger_girer() {
-        loginPage.userBox.sendKeys(ConfigReader.getProperty("user_valid"));
+        loginPage.userBox.sendKeys(ConfigurationReader.getProperty("user_valid"));
 
     }
 
     @Then("Kullanici PasswordBoxa invalid bir deger girer")
     public void kullanici_password_boxa_invalid_bir_deger_girer() {
-        loginPage.passBox.sendKeys(ConfigReader.getProperty("pass_invalid1"));
+        loginPage.passBox.sendKeys(ConfigurationReader.getProperty("pass_invalid1"));
 
     }
 
@@ -57,13 +57,13 @@ public class US_005_StepDefinitions {
 
     @Then("Kullanici UsernameBoxa Invalid bir deger girer")
     public void kullaniciUsernameBoxaInvalidBirDegerGirer() {
-        loginPage.userBox.sendKeys(ConfigReader.getProperty("user_invalid"));
+        loginPage.userBox.sendKeys(ConfigurationReader.getProperty("user_invalid"));
 
     }
 
     @And("Kullanici PasswordBoxa valid bir deger girer")
     public void kullaniciPasswordBoxaValidBirDegerGirer() {
-        loginPage.passBox.sendKeys(ConfigReader.getProperty("pass_valid"));
+        loginPage.passBox.sendKeys(ConfigurationReader.getProperty("pass_valid"));
     }
 
     @And("Kullanici Did you forget your password? a tiklar")
@@ -96,6 +96,6 @@ public class US_005_StepDefinitions {
 
     @And("Kullanici PasswordBoxa {string} bir deger girer")
     public void kullaniciPasswordBoxaBirDegerGirer(String pass) {
-        loginPage.passBox.sendKeys(ConfigReader.getProperty(pass));
+        loginPage.passBox.sendKeys(ConfigurationReader.getProperty(pass));
     }
 }

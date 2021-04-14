@@ -1,6 +1,6 @@
 package com.gmibank.utilities;
-import com.gmibank.pojos.Country;
-import com.gmibank.pojos.Customer;
+import com.gmibank.pojos.Country2;
+import com.gmibank.pojos.Customer2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -234,19 +234,19 @@ public class DatabaseUtility {
 //        System.out.println(getColumnNames(query));
 //        System.out.println(getColumnData(query, getColumnNames(query).get(3)));
 //        System.out.println(getCellValuewithRowsAndCells(query,5,4));
-        List <Customer> listOfCustomers = new ArrayList<>();
+        List <Customer2> listOfCustomer2s = new ArrayList<>();
         List <List< Object>> list =getQueryResultList(query);
         for (int i=0; i<20; i++){
-            Customer customer = new Customer();
-            Country country = new Country();
+            Customer2 customer2 = new Customer2();
+            Country2 country2 = new Country2();
             System.out.println(list.get(i).get(1));
-            customer.setFirstName(list.get(i).get(1).toString());
-            customer.setSsn(list.get(i).get(10).toString());
-            country.setName(list.get(i).get(8).toString());
+            customer2.setFirstName(list.get(i).get(1).toString());
+            customer2.setSsn(list.get(i).get(10).toString());
+            country2.setName(list.get(i).get(8).toString());
             //customer.setState(list.get(i).get(14).toString());
-            customer.setZipCode(list.get(i).get(15).toString());
-            customer.setCountry(country);
-            listOfCustomers.add(customer);
+            customer2.setZipCode(list.get(i).get(15).toString());
+            customer2.setCountry(country2);
+            listOfCustomer2s.add(customer2);
         }
         //  PDFGenerator.pdfGeneratorRowsAndCellsWithList("All Customers!",listOfCustomers,"AllApplicants.pdf" );
     }

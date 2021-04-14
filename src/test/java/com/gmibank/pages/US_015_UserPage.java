@@ -17,16 +17,16 @@ public class US_015_UserPage {
     @FindBy(xpath = "//*[text()='My Accounts']")
     public WebElement myAccounts;
 
-    @FindBy(xpath = "(//a[@aria-haspopup='true'])[2]")
+    @FindBy(xpath = "//*[text()='Administration']")
     public WebElement administration;
 
-    @FindBy(xpath = "//*[text()='User management']")
+    @FindBy(xpath = "//*[text()='My Operations']")
     public WebElement userManagement;
 
     @FindBy(xpath = "(//a[@class='page-link'])[9]")
     public WebElement lastPageButton;
 
-    @FindBy(xpath = "//a[@href='/admin/user-management/dteam30/edit']")
+    @FindBy(xpath = "//a[@href='/admin/user-management/team44demo/edit']")
     public WebElement team30DemoEditButton;
 
     @FindBy(xpath = "//input[@name='activated']")
