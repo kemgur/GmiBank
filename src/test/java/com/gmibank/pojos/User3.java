@@ -3,7 +3,7 @@ package com.gmibank.pojos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class User3 {
     private int id;
     private String login;
     private String firstName;
@@ -58,14 +58,4 @@ public class User {
     public void setActivated(boolean activated) {
         this.activated = activated;
     }
-
-    public String getLagKey() {
-        return lagKey;
-    }
-
-    public void setLagKey(String lagKey) {
-        this.lagKey = lagKey;
-    }
-
-    private String lagKey;
 }

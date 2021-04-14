@@ -1,5 +1,5 @@
 package com.gmibank.stepdefinitions;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 public class US_027_StepDefinitions {
     @Given("user deletes states using endpoint {string} and its extension {string} and validate")
     public void userDeletesStatesUsingEndpointAndItsExtensionAndValidate(String api_url, String id) {
-        Response response = given().headers("Authorization","Bearer " + ConfigReader.getProperty("token"),
+        Response response = given().headers("Authorization","Bearer " + ConfigurationReader.getProperty("token"),
                 "Content-Type",ContentType.JSON,
                 "Accept", ContentType.JSON)
                 .when()
@@ -17,7 +17,7 @@ public class US_027_StepDefinitions {
                 .then()
                 .extract()
                 .response();
-        Response responseAll = given().headers("Authorization","Bearer " + ConfigReader.getProperty("token"),
+        Response responseAll = given().headers("Authorization","Bearer " + ConfigurationReader.getProperty("token"),
                 "Content-Type",ContentType.JSON,
                 "Accept", ContentType.JSON)
                 .when()

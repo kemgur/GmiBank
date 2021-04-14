@@ -1,56 +1,15 @@
 package com.gmibank.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-@JsonIgnoreProperties(ignoreUnknown = true)  //bulamazsa ignore et dedik
-public class Customer {
-    private  int id;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Customer3 {
+
+    private int id;
     private String firstName;
     private String lastName;
     private String middleInitial;
     private String email;
-    public Customer() {
-    }
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", middleInitial='" + middleInitial + '\'' +
-                ", email='" + email + '\'' +
-                ", mobilePhoneNumber='" + mobilePhoneNumber + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", createDate='" + createDate + '\'' +
-                ", zelleEnrolled=" + zelleEnrolled +
-                ", country=" + country +
-                ", state=" + state +
-                ", user=" + user +
-                ", accounts=" + accounts +
-                '}';
-    }
-    public Customer(int id, String firstName, String lastName, String middleInitial, String email, String mobilePhoneNumber, String phoneNumber, String zipCode, String address, String city, String ssn, String createDate, boolean zelleEnrolled, Country country, States state, User user, Accounts accounts) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.middleInitial = middleInitial;
-        this.email = email;
-        this.mobilePhoneNumber = mobilePhoneNumber;
-        this.phoneNumber = phoneNumber;
-        this.zipCode = zipCode;
-        this.address = address;
-        this.city = city;
-        this.ssn = ssn;
-        this.createDate = createDate;
-        this.zelleEnrolled = zelleEnrolled;
-        this.country = country;
-        this.state = state;
-        this.user = user;
-        this.accounts = accounts;
-    }
     private String mobilePhoneNumber;
     private String phoneNumber;
     private String zipCode;
@@ -59,110 +18,144 @@ public class Customer {
     private String ssn;
     private String createDate;
     private boolean zelleEnrolled;
-    private Country country;
-    private States state;
-    private User user;
-    private Accounts accounts;
+    private Country3 country;
+    private String state;
+    private User3 user;
+    private Accounts3 accounts;
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getMiddleInitial() {
         return middleInitial;
     }
+
     public void setMiddleInitial(String middleInitial) {
         this.middleInitial = middleInitial;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
+
     public void setMobilePhoneNumber(String mobilePhoneNumber) {
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
     public String getZipCode() {
         return zipCode;
     }
+
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getCity() {
         return city;
     }
+
     public void setCity(String city) {
         this.city = city;
     }
+
     public String getSsn() {
         return ssn;
     }
+
     public void setSsn(String ssn) {
         this.ssn = ssn;
     }
+
     public String getCreateDate() {
         return createDate;
     }
+
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
+
     public boolean isZelleEnrolled() {
         return zelleEnrolled;
     }
+
     public void setZelleEnrolled(boolean zelleEnrolled) {
         this.zelleEnrolled = zelleEnrolled;
     }
-    public Country getCountry() {
+
+    public Country3 getCountry() {
         return country;
     }
-    public void setCountry(Country country) {
+
+    public void setCountry(Country3 country) {
         this.country = country;
     }
-    public States getState() {
+
+    public String getState() {
         return state;
     }
-    public void setState(States state) {
+
+    public void setState(String state) {
         this.state = state;
     }
-    public User getUser() {
+
+    public User3 getUser() {
         return user;
     }
-    public void setUser(User user) {
+
+    public void setUser(User3 user) {
         this.user = user;
     }
-    public Accounts getAccounts() {
+
+    public Accounts3 getAccounts() {
         return accounts;
     }
-    public void setAccounts(Accounts accounts) {
+
+    public void setAccounts(Accounts3 accounts) {
         this.accounts = accounts;
     }
 }

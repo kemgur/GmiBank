@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import com.gmibank.pages.UpdateUserInformationPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 
@@ -21,13 +21,13 @@ public class US_007_Stepdefinitions {
 
     @Given("Enter {string} in username textbox")
     public void enter_in_username_textbox(String username) {
-        updateUserInformationPage.usernameTextBox.sendKeys(ConfigReader.getProperty(username));
+        updateUserInformationPage.usernameTextBox.sendKeys(ConfigurationReader.getProperty(username));
 
     }
 
     @Given("Enter {string} in the password text box")
     public void enter_in_the_password_text_box(String password) {
-        updateUserInformationPage.passwordTextBox.sendKeys(ConfigReader.getProperty(password));
+        updateUserInformationPage.passwordTextBox.sendKeys(ConfigurationReader.getProperty(password));
     }
 
     @Given("Click the sign in button")
@@ -50,13 +50,13 @@ public class US_007_Stepdefinitions {
 
     @Given("Enter a letter-only {string} into the email text box")
     public void enter_a_letter_only_into_the_email_text_box(String email) {
-        updateUserInformationPage.emailTextBox.sendKeys(ConfigReader.getProperty(email));
+        updateUserInformationPage.emailTextBox.sendKeys(ConfigurationReader.getProperty(email));
 
     }
 
     @Then("Then I should see the error message {string}")
     public void then_i_should_see_the_error_message(String error) {
-        Assert.assertTrue(updateUserInformationPage.errorMessage.getText().contains(ConfigReader.getProperty(error)));
+        Assert.assertTrue(updateUserInformationPage.errorMessage.getText().contains(ConfigurationReader.getProperty(error)));
 
     }
 
@@ -69,19 +69,19 @@ public class US_007_Stepdefinitions {
     @And("Select the {string} option from the language dropdown")
     public void selectTheOptionFromTheLanguageDropdown(String language) throws InterruptedException {
         Select select=new Select(updateUserInformationPage.languageDropdown);
-        select.selectByVisibleText(ConfigReader.getProperty(language));
+        select.selectByVisibleText(ConfigurationReader.getProperty(language));
         ReusableMethods.waitFor(3);
     }
 
     @Then("Then user should see the text {string} on the web page")
     public void thenUserShouldSeeTheTextOnTheWebPage(String languageSettings) throws InterruptedException {
         ReusableMethods.waitFor(3);
-        Assert.assertEquals(ConfigReader.getProperty(languageSettings), updateUserInformationPage.settingSavedMessage.getText());
+        Assert.assertEquals(ConfigurationReader.getProperty(languageSettings), updateUserInformationPage.settingSavedMessage.getText());
         ReusableMethods.waitFor(3);
     }
 
     @Given("user goes to {string} homepage")
     public void userGoesToHomepage(String gmibank) {
-        Driver.getDriver().get(ConfigReader.getProperty(gmibank));
+        Driver.getDriver().get(ConfigurationReader.getProperty(gmibank));
     }
 }

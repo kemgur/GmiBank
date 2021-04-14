@@ -2,7 +2,7 @@ package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_001GmiBankHomePage;
 import com.gmibank.pages.US_001GmiBankRegistrationPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -17,7 +17,7 @@ public class US_001_StepDefinitions {
 
     @Given("User goes to {string}")
     public void user_goes_to(String url) {
-        Driver.getDriver().get(ConfigReader.getProperty(url));
+        Driver.getDriver().get(ConfigurationReader.getProperty(url));
 
     }
 
@@ -36,7 +36,7 @@ public class US_001_StepDefinitions {
 
     @Then("User provides the {string} of the applicant")
     public void user_provides_the_of_the_applicant(String ssn) {
-        registrationPage.ssnTextbox.sendKeys(ConfigReader.getProperty(ssn));
+        registrationPage.ssnTextbox.sendKeys(ConfigurationReader.getProperty(ssn));
 
     }
 
@@ -58,7 +58,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the first_name of the applicant")
     public void userProvidesTheFirst_nameOfTheApplicant() {
-        registrationPage.firstname.sendKeys(ConfigReader.getProperty("first_name"));
+        registrationPage.firstname.sendKeys(ConfigurationReader.getProperty("first_name"));
     }
 
     @And("User clicks on last name textbox")
@@ -68,7 +68,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the last_name of the applicant")
     public void userProvidesTheLast_nameOfTheApplicant() {
-        registrationPage.lastname.sendKeys(ConfigReader.getProperty("last_name"));
+        registrationPage.lastname.sendKeys(ConfigurationReader.getProperty("last_name"));
     }
 
     @And("User clicks on address textbox")
@@ -78,7 +78,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the address of the applicant")
     public void userProvidesTheAddressOfTheApplicant() {
-        registrationPage.address.sendKeys(ConfigReader.getProperty("address"));
+        registrationPage.address.sendKeys(ConfigurationReader.getProperty("address"));
     }
 
     @And("User clicks on mobile phone number textbox")
@@ -88,7 +88,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the mobile_phone_number of the applicant")
     public void userProvidesTheMobile_phone_numberOfTheApplicant() {
-        registrationPage.mobilePhone.sendKeys(ConfigReader.getProperty("mobile_phone_number"));
+        registrationPage.mobilePhone.sendKeys(ConfigurationReader.getProperty("mobile_phone_number"));
     }
 
     @And("User clicks on username textbox")
@@ -98,7 +98,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the username of the applicant")
     public void userProvidesTheUsernameOfTheApplicant() {
-        registrationPage.username.sendKeys(ConfigReader.getProperty("username"));
+        registrationPage.username.sendKeys(ConfigurationReader.getProperty("username"));
     }
 
     @And("User clicks on email textbox")
@@ -109,7 +109,7 @@ public class US_001_StepDefinitions {
 
     @And("User provides the email of the applicant")
     public void userProvidesTheEmailOfTheApplicant() {
-        registrationPage.email.sendKeys(ConfigReader.getProperty("email"));
+        registrationPage.email.sendKeys(ConfigurationReader.getProperty("email"));
     }
 
 

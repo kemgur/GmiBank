@@ -1,7 +1,7 @@
 package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_006_UserInfoSegmentPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 import io.cucumber.java.en.Given;
@@ -30,12 +30,12 @@ public class US_006_StepDefinitions extends ReusableMethods {
 
     @Given("Sent {string} to username blank")
     public void sent_to_username_blank(String userName) {
-        userInfo.username.sendKeys(ConfigReader.getProperty(userName));
+        userInfo.username.sendKeys(ConfigurationReader.getProperty(userName));
     }
 
     @Given("Sent {string} to password blank")
     public void sent_to_password_blank(String pass) {
-        userInfo.password.sendKeys(ConfigReader.getProperty(pass));
+        userInfo.password.sendKeys(ConfigurationReader.getProperty(pass));
     }
 
     @Given("click to sign in button")
@@ -90,7 +90,7 @@ public class US_006_StepDefinitions extends ReusableMethods {
         ReusableMethods.waitFor(2);
         userInfo.firstName.clear();
         ReusableMethods.waitFor(2);
-        userInfo.firstName.sendKeys(ConfigReader.getProperty(fn));
+        userInfo.firstName.sendKeys(ConfigurationReader.getProperty(fn));
         userInfo.submit.click();
 
     }
@@ -100,7 +100,7 @@ public class US_006_StepDefinitions extends ReusableMethods {
         ReusableMethods.waitFor(2);
         userInfo.lastName.clear();
         ReusableMethods.waitFor(2);
-        userInfo.lastName.sendKeys(ConfigReader.getProperty(ln));
+        userInfo.lastName.sendKeys(ConfigurationReader.getProperty(ln));
         userInfo.submit.click();
     }
 
@@ -109,7 +109,7 @@ public class US_006_StepDefinitions extends ReusableMethods {
         ReusableMethods.waitFor(2);
         userInfo.email.clear();
         ReusableMethods.waitFor(2);
-        userInfo.email.sendKeys(ConfigReader.getProperty(mail));
+        userInfo.email.sendKeys(ConfigurationReader.getProperty(mail));
         userInfo.submit.click();
     }
 }

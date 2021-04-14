@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import com.gmibank.pages.US_005LoginPage;
 import com.gmibank.pages.US_016TransferMoneyPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 
 public class US_016_StepDefinitions {
     US_005LoginPage loginPage=new US_005LoginPage();
@@ -14,13 +14,13 @@ public class US_016_StepDefinitions {
 
     @Then("Kullanici usernameBoxa customer bir data girer")
     public void kullanici_username_boxa_customer_bir_data_girer() {
-        loginPage.userBox.sendKeys(ConfigReader.getProperty("customer_usser"));
+        loginPage.userBox.sendKeys(ConfigurationReader.getProperty("customer_usser"));
 
     }
 
     @Then("Kullanici passwordBoxa customer bir data girer")
     public void kullanici_password_boxa_customer_bir_data_girer() {
-        loginPage.passBox.sendKeys(ConfigReader.getProperty("customer_pass"));
+        loginPage.passBox.sendKeys(ConfigurationReader.getProperty("customer_pass"));
 
     }
 
@@ -66,12 +66,12 @@ public class US_016_StepDefinitions {
 
     @And("Kullanici transfer edecegi para miktarini girer")
     public void kullaniciTransferEdecegiParaMiktariniGirer() {
-        transferMoney.balanceBox.sendKeys(ConfigReader.getProperty("transfer_miktar"));
+        transferMoney.balanceBox.sendKeys(ConfigurationReader.getProperty("transfer_miktar"));
     }
 
     @And("Kullanici transfer icin bir aciklama girer")
     public void kullaniciTransferIcinBirAciklamaGirer() {
-        transferMoney.aciklama.sendKeys(ConfigReader.getProperty("aciklama"));
+        transferMoney.aciklama.sendKeys(ConfigurationReader.getProperty("aciklama"));
     }
 
     @And("Kullanici Make Transfer e tiklar")

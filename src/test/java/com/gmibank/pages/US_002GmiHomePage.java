@@ -11,7 +11,7 @@ public class US_002GmiHomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//a[@aria-haspopup]")
+    @FindBy(xpath = "(//a[@aria-haspopup='true'])[2]")
     public WebElement picture;
 
     @FindBy(xpath = "(//a[@class='dropdown-item'])[2]")

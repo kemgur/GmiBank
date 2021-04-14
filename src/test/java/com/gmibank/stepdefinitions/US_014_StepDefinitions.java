@@ -3,7 +3,7 @@ package com.gmibank.stepdefinitions;
 import com.gmibank.pages.US_001GmiBankHomePage;
 import com.gmibank.pages.US_014GmiBankCreateAnAccountPage;
 import com.gmibank.pages.US_014GmiBankSignInPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -33,13 +33,13 @@ public class US_014_StepDefinitions {
 
     @Given("User enters their username in the username textbox")
     public void user_enters_their_username_in_the_username_textbox() {
-        signInPage.usernameTextbox.sendKeys(ConfigReader.getProperty("usernameSignIn"));
+        signInPage.usernameTextbox.sendKeys(ConfigurationReader.getProperty("usernameSignIn"));
 
     }
 
     @Given("User enters their password in the password textbox")
     public void user_enters_their_password_in_the_password_textbox() {
-        signInPage.passwordTextbox.sendKeys(ConfigReader.getProperty("passwordSigIn"));
+        signInPage.passwordTextbox.sendKeys(ConfigurationReader.getProperty("passwordSigIn"));
 
     }
 
@@ -69,11 +69,11 @@ public class US_014_StepDefinitions {
     @Given("User enters their all informations in the textboxes")
     public void user_enters_their_all_informations_in_the_textboxes() {
         createAnAccountPage.descriptionTextbox.sendKeys("description");
-        createAnAccountPage.balanceTextbox.sendKeys(ConfigReader.getProperty("balance"));
+        createAnAccountPage.balanceTextbox.sendKeys(ConfigurationReader.getProperty("balance"));
         Select select = new Select(createAnAccountPage.accountTypeDropdown);
-        select.selectByValue(ConfigReader.getProperty("value1"));
+        select.selectByValue(ConfigurationReader.getProperty("value1"));
         Select select1 = new Select(createAnAccountPage.accountStatusTypeDropdown);
-        select1.selectByValue(ConfigReader.getProperty("value2"));
+        select1.selectByValue(ConfigurationReader.getProperty("value2"));
 
 
 

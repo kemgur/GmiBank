@@ -1,7 +1,7 @@
 package com.gmibank.utilities;
 
-import com.gmibank.pojos.Country;
-import com.gmibank.pojos.Customer;
+import com.gmibank.pojos.Country2;
+import com.gmibank.pojos.Customer2;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -104,7 +104,7 @@ public class PDFGenerator {
             e.printStackTrace();
         }
     }
-    public static void pdfGeneratorRowsAndCellsWithList(String header, List <Customer> list, String fileName){
+    public static void pdfGeneratorRowsAndCellsWithList(String header, List <Customer2> list, String fileName){
         Document document = new Document();
         String pdf_path = fileName;
         String pdf_title = header;
@@ -149,21 +149,21 @@ public class PDFGenerator {
     public static void main(String[] args) {
         //pdfGenerator("               pdf_ders","deneme.pdf");
         //  pdfGeneratorRowsAndCells("pdf2","pdf_ders2.pdf");
-        List <Customer> list = new ArrayList<>();
-        Country country = new Country();
-        country.setName("USA");
-        Customer customer = new Customer();
-        customer.setFirstName("Emine");
+        List <Customer2> list = new ArrayList<>();
+        Country2 country2 = new Country2();
+        country2.setName("USA");
+        Customer2 customer2 = new Customer2();
+        customer2.setFirstName("Emine");
         //customer.setState("MA");
-        customer.setSsn("202020202");
-        customer.setZipCode("02120");
-        customer.setCountry(country);
-        list.add(customer);
+        customer2.setSsn("202020202");
+        customer2.setZipCode("02120");
+        customer2.setCountry(country2);
+        list.add(customer2);
         String header = "Information";
         String fileName ="some.pdf";
         pdfGeneratorRowsAndCellsWithList(header,list,fileName);
     }
-    public static void pdfGeneratorRowsAndCellsWithListFirstToFive(String header, List <Customer> list, String fileName){
+    public static void pdfGeneratorRowsAndCellsWithListFirstToFive(String header, List <Customer2> list, String fileName){
         Document document = new Document();
         String pdf_path = fileName;
         String pdf_title = header;

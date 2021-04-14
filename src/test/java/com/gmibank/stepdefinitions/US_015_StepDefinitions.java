@@ -7,7 +7,7 @@ import com.gmibank.pages.US_002GmiHomePage;
 import com.gmibank.pages.US_015_LoginPage;
 import com.gmibank.pages.US_015_MyAccountsPage;
 import com.gmibank.pages.US_015_UserPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 
 public class US_015_StepDefinitions {
@@ -26,12 +26,12 @@ public class US_015_StepDefinitions {
 
     @Then("User provides {string} username")
     public void userProvidesUsername(String usernames) {
-        loginPage.usernameTextbox.sendKeys(ConfigReader.getProperty(usernames));
+        loginPage.usernameTextbox.sendKeys(ConfigurationReader.getProperty(usernames));
     }
 
     @Then("User provides {string} password")
     public void userProvidesPassword(String passwords) {
-        loginPage.passwordTextbox.sendKeys(ConfigReader.getProperty(passwords));
+        loginPage.passwordTextbox.sendKeys(ConfigurationReader.getProperty(passwords));
     }
 
     @Then("User clicks Sign in button")

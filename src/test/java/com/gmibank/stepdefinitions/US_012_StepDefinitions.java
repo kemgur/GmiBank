@@ -1,7 +1,7 @@
 package com.gmibank.stepdefinitions;
 
 import com.gmibank.pages.US_010_and_012_EmployeeCustomerPage;
-import com.gmibank.utilities.ConfigReader;
+import com.gmibank.utilities.ConfigurationReader;
 import com.gmibank.utilities.Driver;
 import com.gmibank.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
@@ -13,9 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import javax.swing.*;
-import java.util.List;
-
 public class US_012_StepDefinitions {
 
     US_010_and_012_EmployeeCustomerPage employeeCustomerPage = new US_010_and_012_EmployeeCustomerPage();
@@ -24,9 +21,9 @@ public class US_012_StepDefinitions {
     public void userSeesThatTheFirstCustomerSIsNotEmpty(String cellno) {
 
         WebElement header;
-        header = employeeCustomerPage.headers.get(Integer.valueOf(ConfigReader.getProperty(cellno)));
+        header = employeeCustomerPage.headers.get(Integer.valueOf(ConfigurationReader.getProperty(cellno)));
 
-        WebElement data= employeeCustomerPage.cells.get(Integer.valueOf(ConfigReader.getProperty(cellno)));
+        WebElement data= employeeCustomerPage.cells.get(Integer.valueOf(ConfigurationReader.getProperty(cellno)));
         System.out.println(header.getText()+" : "+data.getText());
         Assert.assertTrue(data.isDisplayed());
 
@@ -105,7 +102,7 @@ public class US_012_StepDefinitions {
     @Then("user should see {string} at the and")
     public void userShouldSeeAtTheAnd(String delete_message) {
        ReusableMethods.waitFor(1);
-       Assert.assertEquals(ConfigReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
+       Assert.assertEquals(ConfigurationReader.getProperty(delete_message), employeeCustomerPage.delete_message.getText());
     }
 
     @And("user clicks on Delete-confirm button")

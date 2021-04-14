@@ -2,9 +2,7 @@ package com.gmibank.stepdefinitions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gmibank.pojos.Applicants;
-import com.gmibank.utilities.ConfigReader;
-import com.gmibank.utilities.ReadTxt;
-import com.gmibank.utilities.WriteToTxt;
+import com.gmibank.utilities.ConfigurationReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.restassured.RestAssured;
@@ -14,7 +12,6 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class US_023_StepDefinitions {
     Applicants[] applicants;
@@ -29,7 +26,7 @@ public class US_023_StepDefinitions {
                 accept(ContentType.JSON).
                 contentType(ContentType.JSON).
                 auth().
-                oauth2(ConfigReader.getProperty("token")).
+                oauth2(ConfigurationReader.getProperty("token")).
                 when().
                 get(endpoint).
                 then().

@@ -3,6 +3,9 @@ package com.gmibank.utilities;
 
 
 import com.gmibank.pojos.Applicants;
+import com.gmibank.pojos.Country3;
+import com.gmibank.pojos.Customer5;
+import com.gmibank.pojos.States;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,15 +14,15 @@ import java.util.List;
 
 public class ReadTxt {
 
-/*
-    public static List<Customer> returnCustomer(String filePath){
-        List<Customer>all = new ArrayList<>();
+
+    public static List<Customer5> returnCustomer(String filePath){
+        List<Customer5>all = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(ConfigurationReader.getProperty(filePath)))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
             while (line != null) {
-                Customer customer = new Customer();
+                Customer5 customer = new Customer5();
                 sb.append(line);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
@@ -37,7 +40,7 @@ public class ReadTxt {
     }
 
 
-*/
+
     public static List<Applicants> returnCustomerSNN(String filePath){
         List<Applicants>all = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -59,15 +62,15 @@ public class ReadTxt {
             e.printStackTrace();
         }
         return all;
-    }}
-/*
-    public static List<Customer> readTxtData(String filePath)throws  Exception{
-        List<Customer> list = new ArrayList<>();
+    }
+
+    public static List<Customer5> readTxtData(String filePath)throws  Exception{
+        List<Customer5> list = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         try {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-            Customer customer = new Customer();
+            Customer5 customer = new Customer5();
             while (line != null) {
                 sb.append(line);
                 sb.append(System.lineSeparator());
@@ -121,7 +124,7 @@ public class ReadTxt {
             System.out.println(line);
             int i = 0;
             while (line != null) {
-                Customer customer = new Customer();
+                Customer5 customer = new Customer5();
                 customer.setSsn(line.split(",")[0]);
                 sb.append(System.lineSeparator());
                 line = br.readLine();
@@ -129,6 +132,26 @@ public class ReadTxt {
                 System.out.println(i++);
 
                 all.add(customer.getSsn());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return all;
+    }
+
+    public static List<String> returnCountryIdList(String filePath){
+        List<String>all = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            int i = 0;
+            while (line != null) {
+                Country3 country = new Country3();
+                country.setId(line.split(", ")[0]);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+                i++;
+                all.add(country.getId());
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -189,4 +212,3 @@ public class ReadTxt {
 }
 
 
- */

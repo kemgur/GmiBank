@@ -3,7 +3,7 @@ package com.gmibank.pojos;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Accounts {
+public class Accounts3 {
     private String description;
     private double balance;
 
